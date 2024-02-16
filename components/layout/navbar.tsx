@@ -1,0 +1,77 @@
+"use client";
+
+import useScroll from "@/hooks/use-scroll";
+import { MainNavItem } from "@/types";
+import { User } from "next-auth";
+import { MainNav } from "./main-nav";
+import { UserAccountNav } from "./user-account-nav";
+import { Button, buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { useSigninModal } from "@/hooks/use-signin-modal";
+import { ModeToggle } from "@/components/layout/mode-toggle"
+import { DashboardNav } from "./nav";
+import { dashboardConfig } from "@/config/dashboard";
+
+
+interface NavBarProps {
+  user: Pick<User, "name" | "image" | "email"> | undefined
+  items?: MainNavItem[]
+  children?: React.ReactNode
+  rightElements?: React.ReactNode
+  scroll?: boolean
+}
+
+
+// {!user ? (
+//               <Link
+//                 href="/login"
+//                 className={cn(
+//                   buttonVariants({ variant: "outline", size: "sm" })
+//                 )}
+//               >
+//                 Login Page
+//               </Link>
+//             ) : null}
+
+//             <Button className="px-3" variant="default" size="sm" onClick={signInModal.onOpen}>Sign In</Button>
+
+
+export function NavBar({ user, items, children, rightElements, scroll = false }: NavBarProps) {
+  const scrolled = useScroll(50);
+  const signInModal = useSigninModal();
+
+  return (
+    <header
+      className={`sticky top-0 z-999 flex w-full justify-center transition-all ${scroll ? scrolled
+        ? "border-b"
+        : "bg-opacity-0"
+        : "border-b"} bg-transparent`} // Change bg-background/0 to bg-opacity-0
+      style={{ backdropFilter: 'blur(0px)', }} // Remove background color style
+    >
+
+      <div className="container flex h-16 items-center justify-between py-4">
+        <MainNav items={items}>{children}</MainNav>
+        <div className="flex items-center space-x-3">
+          {rightElements}
+          <ModeToggle initialTheme={'dark'} />
+
+          {user ? (
+            <UserAccountNav user={user} />
+          ) : (
+            <Link
+              href="/login"
+              className={cn(
+                buttonVariants({ variant: "default", size: "sm" })
+              )}
+            >
+              Login
+            </Link>
+
+          )}
+        </div>
+      </div>
+    </header>
+  );
+}
+

@@ -1,0 +1,42 @@
+.history-container {
+    width: 300px;
+    padding: 5px;
+    background: #00000000;
+    border-radius: 10px;
+}
+
+.list-item a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background: rgba(212, 212, 216, 0.072);
+    border-radius: 3em;
+    margin-bottom: 5px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    cursor: pointer;
+}
+
+.list-item::marker {
+    content: "";
+}
+
+.ai-chat-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-first {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.section-second {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

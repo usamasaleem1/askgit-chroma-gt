@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = "mysql://pavan:Admin@123@127.0.0.1:3305/saleem-ai"
+  relationMode = "prisma"
+}
+
+
+model User {
+  user_id                     String    @unique
+  github_token                String?
+  createdAt              DateTime  @default(now()) @map("created_at")
+  updatedAt              DateTime  @default(now()) @map("updated_at")
+
+  @@map("users")
+}
+
+model ChatHistory {
+  id         Int      @id @default(autoincrement())
+  user_id    String
+  title      String
+  ai_result  String  @db.Text
+  session    String
+  created_at DateTime @default(now()) @map("created_at")
+
+  @@map("chat_history")
+}
+
+
+model IngestedRepo {
+  id Int @id @default(autoincrement())
+  repo_url String
+  user_id String
+  repo_name String
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime  @default(now()) @map("updated_at")
+
+  @@map("repos")
+}

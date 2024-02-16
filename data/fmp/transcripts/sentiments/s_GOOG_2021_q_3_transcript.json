@@ -1,0 +1,2207 @@
+[
+  {
+    "start": 0,
+    "end": 110,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 111,
+    "end": 166,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 167,
+    "end": 243,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 245,
+    "end": 355,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 356,
+    "end": 372,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 373,
+    "end": 398,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 399,
+    "end": 495,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 496,
+    "end": 563,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 564,
+    "end": 604,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 605,
+    "end": 804,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 806,
+    "end": 923,
+    "sentiment": " negative</s>"
+  },
+  {
+    "start": 924,
+    "end": 1047,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1048,
+    "end": 1122,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1124,
+    "end": 1326,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1327,
+    "end": 1372,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1373,
+    "end": 1403,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1404,
+    "end": 1433,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1434,
+    "end": 1495,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1496,
+    "end": 1658,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 1659,
+    "end": 1705,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1707,
+    "end": 1763,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1764,
+    "end": 1789,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1790,
+    "end": 1829,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1830,
+    "end": 1949,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 1950,
+    "end": 1985,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 1987,
+    "end": 2106,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 2107,
+    "end": 2229,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 2231,
+    "end": 2372,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 2373,
+    "end": 2487,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 2488,
+    "end": 2577,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 2579,
+    "end": 2624,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 2625,
+    "end": 2652,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 2653,
+    "end": 2724,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 2725,
+    "end": 2849,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 2851,
+    "end": 2984,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 2985,
+    "end": 3057,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 3058,
+    "end": 3132,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 3134,
+    "end": 3214,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 3215,
+    "end": 3356,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 3358,
+    "end": 3444,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 3445,
+    "end": 3581,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 3582,
+    "end": 3698,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 3700,
+    "end": 3751,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 3752,
+    "end": 3847,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 3848,
+    "end": 3946,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 3948,
+    "end": 4003,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 4004,
+    "end": 4154,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 4155,
+    "end": 4253,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 4255,
+    "end": 4366,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 4367,
+    "end": 4505,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 4506,
+    "end": 4597,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 4599,
+    "end": 4716,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 4717,
+    "end": 4756,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 4757,
+    "end": 4870,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 4871,
+    "end": 4892,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 4894,
+    "end": 5081,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 5082,
+    "end": 5209,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 5210,
+    "end": 5302,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 5304,
+    "end": 5410,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 5411,
+    "end": 5509,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 5510,
+    "end": 5669,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 5671,
+    "end": 5808,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 5809,
+    "end": 5945,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 5947,
+    "end": 6073,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 6074,
+    "end": 6242,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 6244,
+    "end": 6379,
+    "sentiment": " negative</s>"
+  },
+  {
+    "start": 6380,
+    "end": 6520,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 6522,
+    "end": 6682,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 6683,
+    "end": 6765,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 6767,
+    "end": 6926,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 6927,
+    "end": 7137,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 7139,
+    "end": 7226,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 7227,
+    "end": 7419,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 7421,
+    "end": 7555,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 7556,
+    "end": 7682,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 7684,
+    "end": 7725,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 7726,
+    "end": 7815,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 7816,
+    "end": 7871,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 7872,
+    "end": 7956,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 7957,
+    "end": 8146,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 8148,
+    "end": 8277,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 8278,
+    "end": 8484,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 8485,
+    "end": 8505,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 8507,
+    "end": 8661,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 8662,
+    "end": 8810,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 8812,
+    "end": 8955,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 8956,
+    "end": 9027,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 9028,
+    "end": 9132,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9133,
+    "end": 9266,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9268,
+    "end": 9348,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9349,
+    "end": 9358,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9359,
+    "end": 9439,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9440,
+    "end": 9548,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9550,
+    "end": 9610,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 9611,
+    "end": 9745,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 9746,
+    "end": 9811,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9812,
+    "end": 9889,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9890,
+    "end": 9920,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9921,
+    "end": 9973,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 9974,
+    "end": 10010,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10011,
+    "end": 10091,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 10092,
+    "end": 10174,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 10175,
+    "end": 10223,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10224,
+    "end": 10333,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10335,
+    "end": 10410,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 10411,
+    "end": 10496,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10497,
+    "end": 10591,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10592,
+    "end": 10667,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10669,
+    "end": 10759,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10760,
+    "end": 10806,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10807,
+    "end": 10828,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10829,
+    "end": 10989,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 10991,
+    "end": 11133,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 11134,
+    "end": 11161,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 11162,
+    "end": 11197,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 11198,
+    "end": 11279,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 11280,
+    "end": 11400,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 11402,
+    "end": 11505,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 11506,
+    "end": 11710,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 11712,
+    "end": 11811,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 11812,
+    "end": 11931,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 11932,
+    "end": 11978,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 11979,
+    "end": 12182,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 12183,
+    "end": 12306,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 12308,
+    "end": 12457,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 12458,
+    "end": 12521,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 12522,
+    "end": 12590,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 12591,
+    "end": 12620,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 12621,
+    "end": 12661,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 12663,
+    "end": 12734,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 12735,
+    "end": 12851,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 12852,
+    "end": 12973,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 12974,
+    "end": 13021,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 13023,
+    "end": 13159,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 13160,
+    "end": 13353,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 13354,
+    "end": 13364,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 13365,
+    "end": 13470,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 13472,
+    "end": 13568,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 13569,
+    "end": 13730,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 13732,
+    "end": 13820,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 13821,
+    "end": 14082,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 14084,
+    "end": 14155,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 14156,
+    "end": 14243,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 14244,
+    "end": 14372,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 14374,
+    "end": 14641,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 14642,
+    "end": 14685,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 14687,
+    "end": 14770,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 14771,
+    "end": 14842,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 14843,
+    "end": 14918,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 14919,
+    "end": 15010,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 15012,
+    "end": 15086,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 15087,
+    "end": 15298,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 15299,
+    "end": 15325,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 15327,
+    "end": 15441,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 15442,
+    "end": 15476,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 15477,
+    "end": 15599,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 15600,
+    "end": 15719,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 15721,
+    "end": 15755,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 15756,
+    "end": 15839,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 15840,
+    "end": 15977,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 15978,
+    "end": 16028,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 16030,
+    "end": 16132,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 16133,
+    "end": 16290,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 16292,
+    "end": 16496,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 16497,
+    "end": 16626,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 16627,
+    "end": 16758,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 16760,
+    "end": 16916,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 16917,
+    "end": 16953,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 16954,
+    "end": 16972,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 16973,
+    "end": 17076,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 17078,
+    "end": 17141,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 17142,
+    "end": 17248,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 17249,
+    "end": 17340,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 17341,
+    "end": 17372,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 17373,
+    "end": 17569,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 17571,
+    "end": 17669,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 17670,
+    "end": 17779,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 17780,
+    "end": 17886,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 17888,
+    "end": 18005,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 18006,
+    "end": 18141,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 18143,
+    "end": 18232,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 18233,
+    "end": 18321,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 18322,
+    "end": 18399,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 18401,
+    "end": 18607,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 18608,
+    "end": 18724,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 18726,
+    "end": 18800,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 18801,
+    "end": 18933,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 18934,
+    "end": 18962,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 18963,
+    "end": 19084,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 19086,
+    "end": 19164,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 19165,
+    "end": 19257,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 19258,
+    "end": 19315,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 19316,
+    "end": 19488,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 19490,
+    "end": 19609,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 19610,
+    "end": 19755,
+    "sentiment": " negative</s>"
+  },
+  {
+    "start": 19756,
+    "end": 19810,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 19812,
+    "end": 19970,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 19971,
+    "end": 20061,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 20062,
+    "end": 20153,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 20155,
+    "end": 20282,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 20283,
+    "end": 20396,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 20397,
+    "end": 20447,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 20449,
+    "end": 20554,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 20555,
+    "end": 20602,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 20603,
+    "end": 20779,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 20780,
+    "end": 20811,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 20813,
+    "end": 21038,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 21040,
+    "end": 21216,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 21217,
+    "end": 21435,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 21437,
+    "end": 21701,
+    "sentiment": " negative</s>"
+  },
+  {
+    "start": 21702,
+    "end": 21832,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 21834,
+    "end": 21940,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 21941,
+    "end": 22141,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 22143,
+    "end": 22281,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 22282,
+    "end": 22528,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 22530,
+    "end": 22674,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 22675,
+    "end": 22787,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 22789,
+    "end": 22875,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 22876,
+    "end": 23083,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 23085,
+    "end": 23250,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 23251,
+    "end": 23389,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 23390,
+    "end": 23400,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 23401,
+    "end": 23458,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 23459,
+    "end": 23479,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 23481,
+    "end": 23548,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 23549,
+    "end": 23571,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 23572,
+    "end": 23632,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 23633,
+    "end": 23675,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 23676,
+    "end": 24003,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 24004,
+    "end": 24075,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 24077,
+    "end": 24537,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 24538,
+    "end": 24578,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 24579,
+    "end": 24599,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 24600,
+    "end": 24615,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 24616,
+    "end": 24758,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 24759,
+    "end": 24824,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 24826,
+    "end": 24895,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 24896,
+    "end": 25019,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 25020,
+    "end": 25258,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 25260,
+    "end": 25351,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 25352,
+    "end": 25457,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 25458,
+    "end": 25534,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 25535,
+    "end": 25680,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 25681,
+    "end": 25786,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 25787,
+    "end": 25885,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 25886,
+    "end": 26001,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26003,
+    "end": 26065,
+    "sentiment": " negative</s>"
+  },
+  {
+    "start": 26066,
+    "end": 26126,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26127,
+    "end": 26205,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26206,
+    "end": 26268,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26269,
+    "end": 26289,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26290,
+    "end": 26400,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26402,
+    "end": 26551,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26552,
+    "end": 26589,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26590,
+    "end": 26722,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26724,
+    "end": 26979,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 26980,
+    "end": 27179,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 27180,
+    "end": 27200,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27201,
+    "end": 27266,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27267,
+    "end": 27289,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27290,
+    "end": 27305,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27306,
+    "end": 27331,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27332,
+    "end": 27364,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27365,
+    "end": 27377,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27378,
+    "end": 27517,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 27518,
+    "end": 27668,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27669,
+    "end": 27723,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27725,
+    "end": 27808,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 27809,
+    "end": 27913,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 27914,
+    "end": 27999,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28000,
+    "end": 28010,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28011,
+    "end": 28057,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28058,
+    "end": 28171,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28172,
+    "end": 28348,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28349,
+    "end": 28405,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28406,
+    "end": 28443,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28445,
+    "end": 28653,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28654,
+    "end": 28722,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28724,
+    "end": 28911,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 28912,
+    "end": 29091,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29093,
+    "end": 29207,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29208,
+    "end": 29249,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29250,
+    "end": 29333,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29335,
+    "end": 29408,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29409,
+    "end": 29562,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29563,
+    "end": 29583,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29584,
+    "end": 29643,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29644,
+    "end": 29666,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29667,
+    "end": 29712,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29713,
+    "end": 29722,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29723,
+    "end": 29862,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 29863,
+    "end": 30163,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 30164,
+    "end": 30174,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 30175,
+    "end": 30211,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 30212,
+    "end": 30245,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 30246,
+    "end": 30378,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 30379,
+    "end": 30509,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 30510,
+    "end": 30612,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 30613,
+    "end": 30665,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 30666,
+    "end": 30726,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 30727,
+    "end": 30873,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 30874,
+    "end": 31024,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 31026,
+    "end": 31189,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 31190,
+    "end": 31259,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 31260,
+    "end": 31357,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 31359,
+    "end": 31679,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 31680,
+    "end": 31708,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 31709,
+    "end": 31719,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 31720,
+    "end": 31796,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 31797,
+    "end": 31819,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 31820,
+    "end": 31843,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 31844,
+    "end": 31873,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 31874,
+    "end": 31964,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 31965,
+    "end": 32054,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32055,
+    "end": 32077,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32078,
+    "end": 32128,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32130,
+    "end": 32216,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32217,
+    "end": 32312,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32313,
+    "end": 32323,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32324,
+    "end": 32514,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32515,
+    "end": 32582,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32583,
+    "end": 32631,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32633,
+    "end": 32765,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 32766,
+    "end": 32821,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32822,
+    "end": 32839,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32840,
+    "end": 32857,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32858,
+    "end": 32982,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 32983,
+    "end": 33132,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 33134,
+    "end": 33297,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 33298,
+    "end": 33433,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 33435,
+    "end": 33614,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 33615,
+    "end": 33721,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 33723,
+    "end": 33866,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 33867,
+    "end": 34034,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34036,
+    "end": 34288,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34289,
+    "end": 34456,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34457,
+    "end": 34480,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34481,
+    "end": 34546,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34547,
+    "end": 34569,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34570,
+    "end": 34591,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34592,
+    "end": 34606,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34607,
+    "end": 34784,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34785,
+    "end": 34840,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 34842,
+    "end": 35122,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 35123,
+    "end": 35143,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 35144,
+    "end": 35185,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 35186,
+    "end": 35268,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 35269,
+    "end": 35364,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 35365,
+    "end": 35402,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 35403,
+    "end": 35438,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 35439,
+    "end": 35533,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 35535,
+    "end": 35721,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 35722,
+    "end": 35768,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 35769,
+    "end": 35945,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 35947,
+    "end": 36104,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36105,
+    "end": 36191,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36192,
+    "end": 36238,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36239,
+    "end": 36263,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36264,
+    "end": 36388,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36389,
+    "end": 36540,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36541,
+    "end": 36560,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36561,
+    "end": 36581,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36582,
+    "end": 36602,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36603,
+    "end": 36663,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36664,
+    "end": 36686,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36687,
+    "end": 36707,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 36708,
+    "end": 36860,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 36861,
+    "end": 37015,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 37016,
+    "end": 37026,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 37027,
+    "end": 37049,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 37050,
+    "end": 37100,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 37101,
+    "end": 37128,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 37129,
+    "end": 37377,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 37379,
+    "end": 37546,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 37547,
+    "end": 37586,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 37588,
+    "end": 37699,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 37700,
+    "end": 37862,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 37864,
+    "end": 38070,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38071,
+    "end": 38101,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38102,
+    "end": 38112,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38113,
+    "end": 38133,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38134,
+    "end": 38215,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38216,
+    "end": 38242,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38243,
+    "end": 38285,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38286,
+    "end": 38373,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38374,
+    "end": 38621,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38623,
+    "end": 38734,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38735,
+    "end": 38774,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 38776,
+    "end": 39032,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 39033,
+    "end": 39076,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 39078,
+    "end": 39085,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 39086,
+    "end": 39112,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 39113,
+    "end": 39166,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 39167,
+    "end": 39296,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 39297,
+    "end": 39411,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 39412,
+    "end": 39692,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 39694,
+    "end": 39889,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 39890,
+    "end": 39976,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 39977,
+    "end": 40034,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 40035,
+    "end": 40088,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 40090,
+    "end": 40258,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 40259,
+    "end": 40354,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 40355,
+    "end": 40502,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 40504,
+    "end": 40564,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 40565,
+    "end": 40679,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 40680,
+    "end": 40845,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 40847,
+    "end": 40992,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 40993,
+    "end": 41145,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 41146,
+    "end": 41151,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 41152,
+    "end": 41162,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 41163,
+    "end": 41183,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 41184,
+    "end": 41240,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 41241,
+    "end": 41263,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 41264,
+    "end": 41333,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 41334,
+    "end": 41612,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 41613,
+    "end": 41717,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 41719,
+    "end": 42016,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 42017,
+    "end": 42052,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 42053,
+    "end": 42176,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 42177,
+    "end": 42334,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 42336,
+    "end": 42358,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 42359,
+    "end": 42440,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 42441,
+    "end": 42520,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 42521,
+    "end": 42559,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 42560,
+    "end": 42589,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 42591,
+    "end": 42606,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 42607,
+    "end": 42649,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 42650,
+    "end": 42735,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 42736,
+    "end": 42839,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 42841,
+    "end": 42896,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 42897,
+    "end": 43032,
+    "sentiment": " positive</s>"
+  },
+  {
+    "start": 43033,
+    "end": 43114,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 43115,
+    "end": 43137,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 43138,
+    "end": 43189,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 43190,
+    "end": 43379,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 43380,
+    "end": 43534,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 43535,
+    "end": 43653,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 43655,
+    "end": 43874,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 43875,
+    "end": 43885,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 43886,
+    "end": 44062,
+    "sentiment": " neutral</s>"
+  },
+  {
+    "start": 44063,
+    "end": 44136,
+    "sentiment": " neutral</s>"
+  }
+]
