@@ -6,10 +6,10 @@
 pnpm install
 ```
 
-2. Copy `.env.example` to `.env.local` and update the variables.
+2. Copy `.env.local.example` to `.env.local` and update the variables.
 
 ```sh
-cp .env.example .env.local
+cp .env.local.example .env.local
 ```
 
 3. Run frontend:
