@@ -8,6 +8,7 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.chains import RetrievalQA
+from langchain.prompts import PromptTemplate
 
 def chat_openai(repoName, question):
 
@@ -39,13 +40,26 @@ def chat_openai(repoName, question):
 
     print("Retrieving...")
     retriever = vectordb.as_retriever(search_kwargs={"k": 4})
+    
+    template = """I want you to act as a coding expert, and an expert on the contents of a github repository. 
+    Answer the question concisely and informatively. If you don't know the answer, just say so.
+    
+    Here is the context of the repository:
+    {context}
+    
+    Question: {question}
+    
+    Helpful Answer:"""
+
+    QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context", "question"], template=template)
 
     # create the chain to answer questions 
     qa_chain = RetrievalQA.from_chain_type(
-                                    llm=ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.3, streaming=True, verbose=True), 
+                                    llm=ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.2, streaming=True, verbose=True), 
                                     chain_type="stuff", 
                                     retriever=retriever, 
-                                    return_source_documents=True,)
+                                    return_source_documents=True,
+                                    chain_type_kwargs={"prompt": QA_CHAIN_PROMPT})
 
     while True:
         # query = input("Question: ")
@@ -55,8 +69,6 @@ def chat_openai(repoName, question):
         res = qa_chain.invoke(query)
         return res
     return True
-
-
 
 ## Cite sources
 def process_llm_response(llm_response):
