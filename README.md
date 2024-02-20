@@ -12,12 +12,18 @@ pnpm install
 cp .env.local.example .env.local
 ```
 
-3. Run frontend:
+3. Edit schema.prima to match your database
+
+```sh
+mysql://user:pass@127.0.0.1:3306/<databasename>
+```
+
+4. Start the frontend:
 ```sh
 pnpm dev
 ```
 
-4. Start the backend server:
+5. Start the backend server:
 
 ```sh
 cd backend

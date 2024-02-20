@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider     = "mysql"
-  url          = "mysql://pavan:Admin@123@127.0.0.1:3305/saleem-ai"
+  url          = "mysql://root:@127.0.0.1:3306/askgit"
   relationMode = "prisma"
 }
 
