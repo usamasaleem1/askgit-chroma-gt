@@ -13,7 +13,10 @@ dependencies:
     version: 2.6.4
   '@next-auth/prisma-adapter':
     specifier: ^0.4.4-canary.81
-    version: 0.4.4(@prisma/client@2.30.3)(next-auth@5.0.0-beta.4)
+    version: 0.4.4(@prisma/client@5.9.1)(next-auth@5.0.0-beta.4)
+  '@prisma/client':
+    specifier: 5.9.1
+    version: 5.9.1(prisma@5.9.1)
   '@radix-ui/react-accessible-icon':
     specifier: ^1.0.3
     version: 1.0.3(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
@@ -1939,13 +1942,13 @@ packages:
       - supports-color
     dev: false
 
-  /@next-auth/prisma-adapter@0.4.4(@prisma/client@2.30.3)(next-auth@5.0.0-beta.4):
+  /@next-auth/prisma-adapter@0.4.4(@prisma/client@5.9.1)(next-auth@5.0.0-beta.4):
     resolution: {integrity: sha512-O8Iv3QlmoHPnS05RCjQbXcFBedL7MCZ1y9o1ya5LT2U2YH+130UTh7Eepl4PRpsTg8v1lo/3LmuXlEjNIE4HgQ==}
     peerDependencies:
       '@prisma/client': ^2.15.0
       next-auth: ^3.1.0
     dependencies:
-      '@prisma/client': 2.30.3(prisma@5.9.1)
+      '@prisma/client': 5.9.1(prisma@5.9.1)
       crypto: 1.0.1
       klona: 2.0.6
       lru-cache: 6.0.0
@@ -2410,9 +2413,9 @@ packages:
     dev: false
     optional: true
 
-  /@prisma/client@2.30.3(prisma@5.9.1):
-    resolution: {integrity: sha512-Ey2miZ+Hne12We3rA8XrlPoAF0iuKEhw5IK2nropaelSt0Ju3b2qSz9Qt50a/1Mx3+7yRSu/iSXt8y9TUMl/Yw==}
-    engines: {node: '>=12.2'}
+  /@prisma/client@5.9.1(prisma@5.9.1):
+    resolution: {integrity: sha512-caSOnG4kxcSkhqC/2ShV7rEoWwd3XrftokxJqOCMVvia4NYV/TPtJlS9C2os3Igxw/Qyxumj9GBQzcStzECvtQ==}
+    engines: {node: '>=16.13'}
     requiresBuild: true
     peerDependencies:
       prisma: '*'
@@ -2420,16 +2423,11 @@ packages:
       prisma:
         optional: true
     dependencies:
-      '@prisma/engines-version': 2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20
       prisma: 5.9.1
     dev: false
 
   /@prisma/debug@5.9.1:
     resolution: {integrity: sha512-yAHFSFCg8KVoL0oRUno3m60GAjsUKYUDkQ+9BA2X2JfVR3kRVSJFc/GpQ2fSORi4pSHZR9orfM4UC9OVXIFFTA==}
-    dev: false
-
-  /@prisma/engines-version@2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20:
-    resolution: {integrity: sha512-/iDRgaoSQC77WN2oDsOM8dn61fykm6tnZUAClY+6p+XJbOEgZ9gy4CKuKTBgrjSGDVjtQ/S2KGcYd3Ring8xaw==}
     dev: false
 
   /@prisma/engines-version@5.9.0-32.23fdc5965b1e05fc54e5f26ed3de66776b93de64:
