@@ -1,0 +1,64 @@
+version: "3.8"
+
+x-nginx-host-variables: &nginx-host-variables
+  HOST: "frontend:3000"
+ 
+networks:
+  app:
+    name: app
+
+services:
+  nginx:
+    image: "nginx:latest"
+    restart: always
+    ports:
+     - "80:8080"
+     - "443:8443"
+    #  - "3000:8080"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      # - ./nginx/server.nginx.template.local.conf:/etc/nginx/templates/server.nginx.template
+      - ./nginx/server.nginx.template.conf:/etc/nginx/templates/server.nginx.template
+      - ./certs:/etc/certs
+    environment:
+      <<: *nginx-host-variables
+    depends_on: 
+      - frontend
+    networks:
+      - app
+
+  frontend:
+    image: "frontend:latest"
+    build: .
+    restart: always
+    env_file:
+      ./.env.docker
+    environment:
+      WAIT_HOSTS: mysql-db:3306
+    depends_on: 
+      - mysql-db
+      - backend
+    networks:
+      - app
+
+  backend:
+    image: "backend:latest"
+    build: ./backend
+    restart: always
+    env_file:
+      ./backend/.env
+    networks:
+      - app
+  
+  mysql-db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: prisma
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - app      
+
+volumes:
+  mysql: ~

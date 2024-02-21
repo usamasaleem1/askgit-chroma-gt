@@ -205,7 +205,7 @@ export default function AiChat({ params, user }) {
                             </div>
 
                             {
-                                sessionList.map((item: any, index: number) => {
+                                sessionList?.map((item: any, index: number) => {
                                     return (
 
                                         <div key={index} className="space-x-1 px-2 my-1 list-item">

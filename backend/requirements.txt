@@ -1,0 +1,10 @@
+uvicorn~=0.27.1
+langchain-community~=0.0.21
+langchain~=0.1.8 
+fastapi~=0.109.2 
+GitPython~=3.1.42 
+chromadb~=0.4.22 
+python-dotenv~=1.0.1
+pysqlite3-binary~=0.5.2.post3
+langchain-openai~=0.0.6
+importlib-metadata~=6.11.0

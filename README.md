@@ -27,6 +27,7 @@ pnpm dev
 
 ```sh
 cd backend
+pip install requirements.txt
 uvicorn main:app --reload
 ```
 ----
