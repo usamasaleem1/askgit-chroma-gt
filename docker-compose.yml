@@ -4,8 +4,8 @@ x-nginx-host-variables: &nginx-host-variables
   HOST: "frontend:3000"
  
 networks:
-  app:
-    name: app
+  askgit-chroma-gt-network:
+    driver: bridge
 
 services:
   nginx:
@@ -14,18 +14,18 @@ services:
     ports:
      - "80:8080"
      - "443:8443"
-    #  - "3000:8080"
+     #- "3000:8080"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      # - ./nginx/server.nginx.template.local.conf:/etc/nginx/templates/server.nginx.template
       - ./nginx/server.nginx.template.conf:/etc/nginx/templates/server.nginx.template
       - ./certs:/etc/certs
+      #- ./nginx/server.nginx.template.local.conf:/etc/nginx/templates/server.nginx.template
     environment:
       <<: *nginx-host-variables
     depends_on: 
       - frontend
     networks:
-      - app
+      - askgit-chroma-gt-network
 
   frontend:
     image: "frontend:latest"
@@ -33,13 +33,15 @@ services:
     restart: always
     env_file:
       ./.env.docker
+    expose:
+      - 3000          
     environment:
       WAIT_HOSTS: mysql-db:3306
     depends_on: 
       - mysql-db
       - backend
     networks:
-      - app
+      - askgit-chroma-gt-network
 
   backend:
     image: "backend:latest"
@@ -47,8 +49,10 @@ services:
     restart: always
     env_file:
       ./backend/.env
+    expose:
+      - 8000
     networks:
-      - app
+      - askgit-chroma-gt-network
   
   mysql-db:
     image: mysql:latest
@@ -58,7 +62,7 @@ services:
     volumes:
       - mysql:/var/lib/mysql
     networks:
-      - app      
+      - askgit-chroma-gt-network
 
 volumes:
   mysql: ~

@@ -6,6 +6,9 @@
     "name": "mickasmt",
     "url": "https://twitter.com/mickasmt"
   },
+  "engines": {
+    "node": "20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,8 +17,8 @@
     "lint": "next lint",
     "preview": "next build && next start",
     "postinstall": "npx prisma generate",
-    "migrate": "rm -rf prisma/migrations && npx prisma migrate dev && npx prisma generate",
-    "migrate-deploy": "rm -rf prisma/migrations && npx prisma migrate deploy && npx prisma generate",
+    "migrate": "npx prisma migrate dev && npx prisma generate",
+    "migrate-deploy": "npx prisma migrate deploy && npx prisma generate",
     "email": "email dev --dir emails --port 3333"
   },
   "overrides": {
@@ -144,8 +147,5 @@
     "tailwindcss": "^3.4.0",
     "typescript": "5.3.3",
     "unist-util-visit": "^5.0.0"
-  },
-  "engines": {
-    "node": "20"
   }
 }

@@ -41,7 +41,12 @@ def ingestingRepositories(repoName):
                                     persist_directory=persist_directory,
                                     collection_name=author_repoName,
                                     )
-
+    # delete RepoContents folder if it exists
+    if os.path.exists('RepoContents'):
+        rmtree('RepoContents')
+    # delete data_backup folder if it exists
+    if os.path.exists('repodata_txt'):
+        rmtree('repodata_txt')
         
     end_time = time.time()
     print(f"Time taken to ingest: {end_time - start_time} seconds")

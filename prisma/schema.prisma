@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider     = "mysql"
-  url          = "mysql://root:prisma@mysql-db:3306/askgit"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
