@@ -71,11 +71,15 @@ export async function GET() {
     let message: string
     let status: number
     let data: any
+    const session: any = await auth()
     try {
         const res = await prisma.ingestedRepo.findMany({
             select: {
                 repo_url: true,
                 repo_name: true
+                            },
+            where: {
+                user_id: session.user.id,
             }
         })
         data = res
