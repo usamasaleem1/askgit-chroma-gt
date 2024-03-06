@@ -85,8 +85,10 @@ export const SetTokenModal = () => {
     } catch (error) {
       console.log(" === error === > ", error);
       setError("Token not valid please try again")
+      localStorage.removeItem('gh-token'); // Clear the invalid token
+      signInModal.onOpen(); // Prompt the user to enter a new token
     } finally {
-      setSignInClicked(false)
+      // setSignInClicked(false)
     }
   }
 
@@ -147,18 +149,27 @@ export const LogoutModal = () => {
 
   return (
     <Modal showModal={signInModal.isOpen} setShowModal={signInModal.onClose}>
-      <div className="w-full">
-        <div className="flex flex-col items-center justify-center space-y-3 border-b bg-background px-4 py-6 pt-8 text-center md:px-16">
+      <div className="w-full" style={{
+        backgroundColor: "rgba(17, 17, 17, 0.7)", // Changed to a darker background color
+        // backdropFilter: "blur(8px)"
+      }}>
+        <div className="flex flex-col items-center justify-center space-y-3 border-b px-4 py-6 pt-8 text-center md:px-16" style={{
+          backgroundColor: "rgba(17, 17, 17, 0.1)", // Changed to a darker background color
+        }}>
           <a href={siteConfig.url}>
-            <Icons.warning className="size-10" />
+            <Icons.warning className="size-10 text-white-700" />
           </a>
-          <h3 className="font-urban text-2xl font-bold">Are you sure you want to logout?</h3>
-          <p className="text-sm text-gray-500">
-            Your Github personal access token will removed from from your browser.
+          <h3 className="font-urban text-2xl font-bold" style={{
+            color: "rgba(255, 255, 255, 0.9)" // Changed text color to a lighter shade for dark mode
+          }}>Are you sure you want to logout?</h3>
+          <p className="text-sm" style={{
+            color: "rgba(255, 255, 255, 0.7)" // Changed text color to a lighter shade for dark mode
+          }}>
+            Your Github personal access will be removed from your browser. You can always sign in again.
           </p>
         </div>
 
-        <div className="flex flex-col space-y-4 bg-secondary/50 px-4 py-8 md:px-16">
+        <div className="flex flex-col space-y-4 px-4 py-8 md:px-16">
           <Button
             variant="default"
             disabled={signInClicked}
