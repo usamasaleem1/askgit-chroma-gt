@@ -62,7 +62,7 @@ export function UserAuthForm({ className, type, ...props }: UserAuthFormProps) {
     <div className={cn("grid gap-6", className)} {...props}>
       <button
         type="button"
-        className={cn(buttonVariants({ variant: "outline" }))}
+        className={cn(buttonVariants(), "rounded-2xl", "border", "border-white", "text-white", "bg-transparent", "flex items-center justify-center", "h-12", "w-full", "hover:text-gray-700")}
         onClick={() => {
           signIn("github", { callbackUrl: '/dashboard' })
         }}
@@ -72,7 +72,7 @@ export function UserAuthForm({ className, type, ...props }: UserAuthFormProps) {
           <Icons.spinner className="mr-2 size-4 animate-spin" />
         ) : (
           <Icons.gitHub className="mr-2 size-4" />
-        )}{" "}
+        )}
         Login with Github
       </button>
     </div>

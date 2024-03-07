@@ -12,6 +12,8 @@ import Link from "next/link";
 import { Link2, LogOut } from "lucide-react";
 import { Input } from "../ui/input";
 import axios from "axios";
+import { MdIntegrationInstructions } from "react-icons/md";
+import { HiCursorClick } from "react-icons/hi";
 
 export const SignInModal = () => {
   const signInModal = useSigninModal();
@@ -84,25 +86,24 @@ export const SetTokenModal = () => {
       signInModal.onClose()
     } catch (error) {
       console.log(" === error === > ", error);
-      setError("Token not valid please try again")
+      setError("Invalid token. Please try again")
       localStorage.removeItem('gh-token'); // Clear the invalid token
       signInModal.onOpen(); // Prompt the user to enter a new token
     } finally {
-      // setSignInClicked(false)
+      setSignInClicked(false)
     }
   }
 
   return (
     <Modal showModal={signInModal.isOpen} setShowModal={signInModal.onClose}>
       <div className="w-full">
-        <div className="flex flex-col items-center justify-center space-y-3 border-b bg-background px-4 py-6 pt-8 text-center md:px-16">
+        <div className="flex flex-col items-center justify-center space-y-3  px-4 py-6 pt-8 text-center md:px-16">
           <a href={siteConfig.url}>
-            <Icons.logo className="size-10" />
+            <Icons.logo className="size-10 text-grey-700" />
           </a>
-          <h3 className="font-urban text-2xl font-bold">Enter your Github Pesonal Access Token</h3>
-          <p className="text-sm text-gray-500">
-            You need an Github personal access token to use AskGit. Your token is secure and is stored locally on your browser and
-            never sent anywhere else.
+          <h3 className="font-urban text-2xl font-bold ">Enter your Github Pesonal Access Token</h3>
+          <p className="text-sm text-gray-300">
+            You need a Github personal access token to use AskGit. Your token is <strong>secure</strong>, kept <strong>only</strong> in your browser and <strong>never</strong> sent elsewhere.
           </p>
         </div>
 
@@ -110,7 +111,8 @@ export const SetTokenModal = () => {
           <Input value={token} placeholder="ghb_XXXXXXXXXXXXXXXXXX" onChange={(event) => setToken(event.target.value)} />
           <p className="text-sm text-center text-red-500">{error}</p>
           <Button
-            variant="default"
+            variant={"outline"}
+            className="rounded-3xl border-green-300 border-2"
             disabled={signInClicked}
             onClick={validateToken}
           >
@@ -121,19 +123,15 @@ export const SetTokenModal = () => {
             )}{" "}
             Set token
           </Button>
-          <Link target="_blank" className="flex justify-center" href="https://github.com/settings/tokens">
+          <span></span>
+          <Link target="_blank" className="flex justify-center text-center" href="https://github.com/settings/tokens">
             <Link2 />
-            <span style={{ marginLeft: 10 }}>Get your PAT from Github Dashboard</span>
+            <span style={{ marginLeft: 10, textDecoration: 'underline' }}>Get your access token from Github</span>
           </Link>
           <div className="text-center">
-            <span>—</span>
+            <span>Select <strong>Generate New Token (Classic)</strong>, then select <strong>'Repo (all)'</strong> as the option</span>
           </div>
-          <div className="text-center">
-            <span>1. Choose Generate New Token (Classic)</span>
-          </div>
-          <div className="text-center">
-            <span>2. Select 'Repo' (all)</span>
-          </div>
+
 
         </div>
       </div>
@@ -149,19 +147,13 @@ export const LogoutModal = () => {
 
   return (
     <Modal showModal={signInModal.isOpen} setShowModal={signInModal.onClose}>
-      <div className="w-full" style={{
-        backgroundColor: "rgba(17, 17, 17, 0.7)", // Changed to a darker background color
-        // backdropFilter: "blur(8px)"
-      }}>
+      <div className="w-full">
         <div className="flex flex-col items-center justify-center space-y-3 border-b px-4 py-6 pt-8 text-center md:px-16" style={{
-          backgroundColor: "rgba(17, 17, 17, 0.1)", // Changed to a darker background color
         }}>
           <a href={siteConfig.url}>
             <Icons.warning className="size-10 text-white-700" />
           </a>
-          <h3 className="font-urban text-2xl font-bold" style={{
-            color: "rgba(255, 255, 255, 0.9)" // Changed text color to a lighter shade for dark mode
-          }}>Are you sure you want to logout?</h3>
+          <h3 className="font-urban text-2xl font-bold">Are you sure you want to logout?</h3>
           <p className="text-sm" style={{
             color: "rgba(255, 255, 255, 0.7)" // Changed text color to a lighter shade for dark mode
           }}>
@@ -171,14 +163,15 @@ export const LogoutModal = () => {
 
         <div className="flex flex-col space-y-4 px-4 py-8 md:px-16">
           <Button
-            variant="default"
+            variant={"outline"}
+            className="rounded-3xl border-red-400 border-2"
             disabled={signInClicked}
             onClick={() => {
               setSignInClicked(true);
-              localStorage.clear()
+              localStorage.clear();
               signOut({
                 callbackUrl: `${window.location.origin}/`,
-              })
+              });
             }}
           >
             {signInClicked ? (

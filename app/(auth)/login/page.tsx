@@ -13,31 +13,31 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <div className="container flex h-screen w-screen flex-col items-center justify-center">
-      <Link
-        href="/"
-        className={cn(
-          buttonVariants({ variant: "outline", size: "sm" }),
-          "absolute left-4 top-4 md:left-8 md:top-8"
-        )}
-      >
-        <>
-          <Icons.chevronLeft className="mr-2 size-4" />
-          Back
-        </>
-      </Link>
-      <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-        <div className="flex flex-col space-y-2 text-center">
-          <Icons.logo className="mx-auto size-6" />
-          <h1 className="text-2xl font-semibold tracking-tight">
-            Welcome
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Login with your github account.
-          </p>
+    <>
+      <div style={{
+        backgroundImage: "linear-gradient(200deg, #171819, #1A1A1E, #45454F)",
+        backgroundSize: "100% 100%",
+        height: "100vh",
+        backgroundPosition: "center",
+      }}>
+        <div className="container flex h-screen w-screen flex-col items-center justify-center">
+          <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+            <div className="flex flex-col space-y-2 text-center">
+              <div className="flex justify-center items-center">
+                <Icons.logo className="size-6" />
+                <span style={{ fontSize: 'medium', fontWeight: 'bold', padding: "10px" }}>Hi there!</span>
+              </div>
+              <h1 className="text-2xl font-semibold tracking-tight">
+                Welcome to AskGit
+              </h1>
+              <p className="text-sm text-muted-foreground">
+                Start by logging in with your GitHub account.
+              </p>
+            </div>
+            <UserAuthForm />
+          </div>
         </div>
-        <UserAuthForm />
       </div>
-    </div>
+    </>
   )
 }
