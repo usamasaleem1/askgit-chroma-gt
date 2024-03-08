@@ -76,7 +76,7 @@ export default function DashboardPage() {
   }, [])
 
   const onRepoIngest = async (item: any) => {
-    
+
     setIngestingLoading(prev => ({
       ...prev,
       [item?.id]: true
@@ -144,6 +144,12 @@ export default function DashboardPage() {
     }
   }
 
+  const tableCellStyle = {
+    margin: "1rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center", // This will center the content horizontally
+  };
 
   const tableRender = useMemo(() => {
     return repoList.map((repo: any, index) => {
@@ -151,14 +157,16 @@ export default function DashboardPage() {
         <>
           <tr key={index} style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.1)' }}>
             <th scope="row">{repo?.name}</th>
-            <td>
+            <td style={tableCellStyle}>
               <a target="_blank" href={repo?.html_url} >{repo?.html_url}</a>
             </td>
-            <td>{repo?.private ? 'Private' : 'Public'}</td>
-            <td>
+            <td >{repo?.private ? 'Private' : 'Public'}</td>
+            <td style={tableCellStyle}>
               {
                 ingestingLoading?.[repo?.id] ?
-                  <BarLoader color="#00A4F1" />
+                  <div style={tableCellStyle}>
+                    <BarLoader color="#00A4F1" />
+                  </div>
                   :
                   <>
                     {
@@ -171,8 +179,7 @@ export default function DashboardPage() {
                           color: 'var(--color-primary)',
                           paddingRight: '2rem',
                           paddingLeft: '2rem',
-                          outline: "solid 2px #16D061A1",
-                          margin: "1rem"
+                          outline: "solid 2px #169E6C",
                         }}>Ingested</Button>
                         :
                         <Button
@@ -183,7 +190,6 @@ export default function DashboardPage() {
                             paddingRight: '2rem',
                             paddingLeft: '2rem',
                             outline: "solid 1px rgba(255, 255, 255, 0.5)",
-                            margin: "1rem"
                           }}
                           onClick={() => onRepoIngest(repo)}>Ingest</Button>
                     }
@@ -272,14 +278,20 @@ export default function DashboardPage() {
             <div style={{ marginTop: 10, width: "100%", maxWidth: "45rem" }} className="container absolute flex justify-center items-center left-0 right-0">
               <Input style={{
                 borderRadius: '1rem',
+                outline: "solid 1px rgba(255, 255, 255, 0.3)",
               }}
-                value={publicRepo} onChange={(e) => setPublicRepo(e.target.value)} placeholder="Paste public Github repo... (e.g https://github.com/openai/whisper)" />
+                value={publicRepo} onChange={(e) => setPublicRepo(e.target.value)} placeholder="Chat with public GitHub repo... (e.g https://github.com/openai/whisper)" />
               {
                 publicIngestingLoading ? <div className="flex justify-center items-center ml-6"><BarLoader color="#FFFFFFC8" /></div>
                   :
                   <Button style={{
                     marginLeft: 10,
                     borderRadius: '1rem',
+                    backgroundColor: 'transparent',
+                    color: 'var(--color-primary)',
+                    paddingRight: '2rem',
+                    paddingLeft: '2rem',
+                    outline: "solid 1px rgba(255, 255, 255, 0.3)",
                   }} disabled={!publicRepo} onClick={() => onPublicRepoIngest(publicRepo)} variant="outline">Ingest</Button>
               }
             </div>
@@ -293,8 +305,24 @@ export default function DashboardPage() {
                 <div style={{
                   width: "80vw",
                   margin: "0 auto", // Center the div horizontally
+                  justifyContent: "center", // Center the child div horizontally
                 }}>
-                  <div style={{ textAlign: "center", marginTop: "5em", fontSize: "1rem", fontWeight: "bold" }} className=" text-md text-gray-500">or choose your own repo below...</div> {/* Added text below the input field */}
+                  <div style={{ textAlign: "center" }}> {/* This div will center the inner div */}
+                    <div style={{
+                      display: "inline-block", // This div will wrap the content
+                      marginTop: "5em",
+                      fontSize: "1rem",
+                      fontWeight: "bold",
+                      backgroundColor: "#FFFFFF0C",
+                      paddingLeft: "2em",
+                      paddingRight: "2em",
+                      paddingTop: "1em",
+                      paddingBottom: "1em",
+                      borderRadius: "1.5em",
+                      border: "1px solid #FFFFFF1C"
+                    }} className="text-sm text-gray-400">or choose your own repo below...
+                    </div>
+                  </div>
                   <table
                     style={{
                       marginTop: "2rem",
@@ -305,12 +333,12 @@ export default function DashboardPage() {
                     }} // Centering the table
                     className="w-full text-sm text-center rounded-xl overflow-hidden"
                   >
-                    <thead className="text-md bg-gray-200 dark:bg-black dark:text-gray-300">
+                    <thead className="text-md bg-gray-200 dark:bg-black dark:text-gray-400">
                       <tr>
-                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600 text-lg">Repo name</th>
-                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600 text-lg">URL</th>
-                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600 text-lg">Private/Public</th>
-                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600 text-lg">Action</th>
+                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600">Repo name</th>
+                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600">GitHub URL</th>
+                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600">Private/Public</th>
+                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600">Action</th>
                       </tr>
                     </thead>
                     <tbody >
@@ -319,10 +347,10 @@ export default function DashboardPage() {
                   </table>
                 </div>
               ) : (
-                <div style={{ textAlign: "center", fontSize: "1rem", fontWeight: "normal", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "0 35%" }}>
+                <div style={{ textAlign: "center", fontSize: "1rem", fontWeight: "normal", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "0 35%" }}>
                   <RiErrorWarningLine style={{ fontSize: "4rem", marginBottom: "2rem", color: "rgba(255, 255, 255, 0.90)" }} />
                   <div style={{ marginBottom: "2rem" }}>
-                    <strong>You haven't entered your GitHub Token yet or it has expired.</strong> It should look like "ghp_XXXXXXXXXXXXXXXXXX". <br />Please click the button below to set it up.<br />
+                    <strong>You haven't entered your GitHub Token yet or it has expired.</strong> It should look like "ghp_XXXXXXXXXXXXXXXXXX". <br />Please click the button below to set it up. <br /><br />If you think this is a mistake, refresh the page to try again.<br />
                   </div>
                   <Button variant={"outline"} className="rounded-3xl border-white border-2" onClick={() => tokenModal.onOpen()} >
                     <Icons.gitHub className="mr-2 size-5" /> Set GitHub Token

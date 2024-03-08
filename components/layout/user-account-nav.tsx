@@ -27,14 +27,15 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="flex items-center space-x-2" style={{
-          backgroundColor: "rgba(250, 250, 250, 0.1)",
+          backgroundColor: "rgba(250, 250, 250, 0.05)",
           paddingLeft: "10px",
           paddingRight: "10px",
           paddingTop: "10px",
           paddingBottom: "10px",
           borderRadius: "20em",
           border: "none", // Hide the rectangular outline on click
-          outline: "#FFFFFF2F solid 2px",
+          outline: "#FFFFFF22 solid 2px",
+          marginRight: "1em"
         }}>
           <UserAvatar
             user={{ name: user?.name || null, image: user?.image || null }}
@@ -53,6 +54,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
         padding: "15px",
         backgroundColor: "rgba(250, 250, 250, 0.05)",
         outline: "solid 1px rgba(255, 255, 255, 0.2)",
+        backdropFilter: "blur(15px)"
       }}>
         <div className="flex items-center justify-start gap-2 p-3" >
           <div className="flex flex-col space-y-1 leading-none">

@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button"
 export default function DashboardLoading() {
   return (
     <DashboardShell>
-      <div className="divide-border-200 divide-y rounded-md border">
+      <div className="divide-border-200 divide-y rounded-md border" style={{
+        margin: "2em"
+      }}>
         <CardSkeleton />
       </div>
     </DashboardShell>

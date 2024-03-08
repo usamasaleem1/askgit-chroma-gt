@@ -77,7 +77,7 @@ export default function AiChat({ params, user }) {
                 title: "Session successfully deleted",
                 description: "You session and chat history has been deleted.",
             })
-            router.push(`/dashboard/ai-chat/${Math.random().toString(36).slice(2)}`)
+            router.push(`/dashboard/chat/${Math.random().toString(36).slice(2)}`)
         } catch (error) {
             console.log(" === Error ===> ", error)
         }
@@ -140,7 +140,7 @@ export default function AiChat({ params, user }) {
                     <div className="flex flex-col h-full history-container" style={{
                         paddingLeft: '1em',
                     }}>
-                        <div className="ai-chat-container">
+                        <div className="chat-container">
                             <div className="px-2 my-1 list-item" >
                                 <Select
                                     placeholder="Select a Repo"
@@ -192,7 +192,7 @@ export default function AiChat({ params, user }) {
 
                             <div className="px-2 my-1 list-item">
                                 <Link
-                                    href={`/dashboard/ai-chat/${Math.random().toString(36).slice(2)}`}
+                                    href={`/dashboard/chat/${Math.random().toString(36).slice(2)}`}
                                     className='h-10 w-full justify-start bg-zinc-50 px-4 shadow-none transition-colors hover:bg-zinc-200/40 dark:bg-zinc-900 dark:hover:bg-zinc-300/10'
                                     style={{
                                         outline: "solid 1px rgba(255, 255, 255, 0.2)",
@@ -210,7 +210,7 @@ export default function AiChat({ params, user }) {
 
                                         <div key={index} className="space-x-1 px-2 my-1 list-item">
                                             <Link
-                                                href={`/dashboard/ai-chat/${item?.session}`}
+                                                href={`/dashboard/chat/${item?.session}`}
                                                 className='h-10 w-full justify-start bg-zinc-50 px-4 shadow-none transition-colors hover:bg-zinc-200/40 dark:bg-zinc-900 dark:hover:bg-zinc-300/10'
                                                 style={{
                                                     outline: "solid 1px rgba(255, 255, 255, 0.2)",

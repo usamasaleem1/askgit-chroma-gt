@@ -8,7 +8,7 @@ export const dashboardConfig: DashboardConfig = {
     },
     {
       title: "💬 Chat",
-      href: `/dashboard/ai-chat/${Math.random().toString(36).slice(2)}`,
+      href: `/dashboard/chat/${Math.random().toString(36).slice(2)}`,
     },
   ],
   sidebarNav: [
@@ -19,7 +19,7 @@ export const dashboardConfig: DashboardConfig = {
     },
     {
       title: "Ai chat bot",
-      href: `/dashboard/ai-chat/${Math.random().toString(36).slice(2)}`,
+      href: `/dashboard/chat/${Math.random().toString(36).slice(2)}`,
       icon: "user",
     },
   ],

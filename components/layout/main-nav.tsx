@@ -40,7 +40,7 @@ export function MainNav({ items, children }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
-        <img src="/logo.png" alt="" style={{ width: "30px", height: "30px" }} />
+        <img src="/logo.png" alt="" style={{ width: "30px", height: "30px", marginLeft: "1em" }} />
         <span className="hidden font-urban text-xl font-bold sm:inline-block">
           {siteConfig.name}
         </span>
