@@ -23,10 +23,11 @@ export async function GET(request: any, context: any) {
         data = response.data
         message = 'Repo list successfully'
         status = 200
-    } catch (error) {
-        console.log(' ==== errror ===> ', error)
-        message = 'Something went wrong'
-        status = 500
-    }
+} catch (error) {
+    console.error('Error fetching repo list:', error);
+    message = 'Something went wrong';
+    status = error.response?.status || 500;
+    data = []; // Ensure data is always an array
+}
     return NextResponse.json({ message: message, status: status, data: data })
 }

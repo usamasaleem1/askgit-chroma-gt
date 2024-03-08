@@ -24,6 +24,7 @@ import {
   X,
   LucideIcon,
   AtSign,
+  Bot
 } from "lucide-react"
 
 export type Icon = LucideIcon
@@ -70,7 +71,7 @@ export const Icons = {
   ),
   help: HelpCircle,
   laptop: Laptop,
-  logo: Puzzle,
+  logo: Bot,
   media: Image,
   moon: Moon,
   page: File,

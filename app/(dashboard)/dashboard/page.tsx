@@ -1,3 +1,7 @@
+
+
+
+
 'use client';
 import { DashboardShell } from "@/components/dashboard/shell"
 import { Button } from "@/components/ui/button"
@@ -9,6 +13,7 @@ import { useTokenModal } from "@/hooks/use-signin-modal";
 import { Icons } from "@/components/shared/icons";
 import { Input } from "@/components/ui/input";
 import Modal from 'react-modal';
+import { RiErrorWarningLine } from "react-icons/ri";
 
 export default function DashboardPage() {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
@@ -21,6 +26,7 @@ export default function DashboardPage() {
   const [ghToken, setGhToken] = useState<string>("")
   const tokenModal = useTokenModal()
   const [publicRepo, setPublicRepo] = useState("")
+  const [isTokenValid, setIsTokenValid] = useState(true); // New state variable to track token validity
 
   useEffect(() => {
     const getGhToken = async () => {
@@ -41,18 +47,21 @@ export default function DashboardPage() {
   }, [tokenModal.isOpen])
 
   const getRepoList = async () => {
-    setLoader(true)
+    setLoader(true);
     try {
-      const token = localStorage.getItem("gh-token")
-      const res = await axios.get('/api/repo/' + token).then(res => res.data)
-      setRepoList(res.data)
+      const token = localStorage.getItem("gh-token");
+      const res = await axios.get('/api/repo/' + token).then(res => res.data);
+      setRepoList(res.data);
+      setIsTokenValid(true); // Set token as valid when data is successfully fetched
     } catch (error) {
-      console.log(" === 12 ===> error ==> useGitRepository ==> ", error)
-      setRepoList([])
+      console.log(" === 12 ===> error ==> useGitRepository ==> ", error);
+      setRepoList([]);
+      setIsTokenValid(false); // Set token as invalid if there is an error
     } finally {
-      setLoader(false)
+      setLoader(false);
     }
-  }
+  };
+
 
   useEffect(() => {
     const getIngestedRepo = async () => {
@@ -67,6 +76,7 @@ export default function DashboardPage() {
   }, [])
 
   const onRepoIngest = async (item: any) => {
+    
     setIngestingLoading(prev => ({
       ...prev,
       [item?.id]: true
@@ -138,48 +148,51 @@ export default function DashboardPage() {
   const tableRender = useMemo(() => {
     return repoList.map((repo: any, index) => {
       return (
-        <tr key={index}>
-          <th scope="row">{repo?.name}</th>
-          <td>
-            <a target="_blank" href={repo?.html_url} >{repo?.html_url}</a>
-          </td>
-          <td>{repo?.private ? 'Private' : 'Public'}</td>
-          <td>
-            {
-              ingestingLoading?.[repo?.id] ?
-                <BarLoader color="#00A4F1" />
-                :
-                <>
-                  {
-                    ingestedRepo.includes(repo?.git_url) ?
-                      <Button variant="outline" onClick={() => {
-                        setShowConfirmationModal(true);
-                      }} style={{
-                        borderRadius: '4rem',
-                        backgroundColor: 'transparent',
-                        color: 'var(--color-primary)',
-                        paddingRight: '2rem',
-                        paddingLeft: '2rem',
-                        outline: "solid 2px #16D061A1",
-                        margin: "1rem"
-                      }}>Ingested</Button>
-                      :
-                      <Button
-                        style={{
+        <>
+          <tr key={index} style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.1)' }}>
+            <th scope="row">{repo?.name}</th>
+            <td>
+              <a target="_blank" href={repo?.html_url} >{repo?.html_url}</a>
+            </td>
+            <td>{repo?.private ? 'Private' : 'Public'}</td>
+            <td>
+              {
+                ingestingLoading?.[repo?.id] ?
+                  <BarLoader color="#00A4F1" />
+                  :
+                  <>
+                    {
+                      ingestedRepo.includes(repo?.git_url) ?
+                        <Button variant="outline" onClick={() => {
+                          setShowConfirmationModal(true);
+                        }} style={{
                           borderRadius: '4rem',
                           backgroundColor: 'transparent',
                           color: 'var(--color-primary)',
                           paddingRight: '2rem',
                           paddingLeft: '2rem',
-                          outline: "solid 1px rgba(255, 255, 255, 0.5)",
+                          outline: "solid 2px #16D061A1",
                           margin: "1rem"
-                        }}
-                        onClick={() => onRepoIngest(repo)}>Ingest</Button>
-                  }
-                </>
-            }
-          </td>
-        </tr>
+                        }}>Ingested</Button>
+                        :
+                        <Button
+                          style={{
+                            borderRadius: '4rem',
+                            backgroundColor: 'transparent',
+                            color: 'var(--color-primary)',
+                            paddingRight: '2rem',
+                            paddingLeft: '2rem',
+                            outline: "solid 1px rgba(255, 255, 255, 0.5)",
+                            margin: "1rem"
+                          }}
+                          onClick={() => onRepoIngest(repo)}>Ingest</Button>
+                    }
+                  </>
+              }
+            </td>
+          </tr>
+          {index < repoList.length - 1 && <tr><td colSpan={4} style={{ height: '1px', backgroundColor: 'rgba(250, 250, 250, 0.12)' }}></td></tr>}
+        </>
       );
     });
   }, [ingestingLoading, repoList, ingestedRepo]);
@@ -208,7 +221,6 @@ export default function DashboardPage() {
           },
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.4)', // Add overlay color with transparency
-            // backdropFilter: 'blur(20px)', // Add backdrop filter to blur the background
           },
         }}
       >
@@ -226,75 +238,103 @@ export default function DashboardPage() {
                 borderRadius: '2rem',
               }}
               variant="outline"
-              onClick={() => handleIngestConfirmation(repoToIngest)}
+              onClick={() => handleIngestConfirmation(repoToIngest)} // This will use the repo stored in repoToIngest
             >
               Proceed
             </Button>
-
           </div>
         </div>
       </Modal>
-      <div style={{
-        maxHeight: "100vh",
-        overflow: "auto",
-        paddingBottom: "15rem",
-      }} className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <div style={{ marginTop: 10, width: "100%", maxWidth: "45rem" }} className="container absolute flex justify-center items-center left-0 right-0">
-          <Input style={{
-            borderRadius: '1rem',
-          }}
-            value={publicRepo} onChange={(e) => setPublicRepo(e.target.value)} placeholder="Paste public Github repo... (e.g https://github.com/openai/whisper)" />
-          {
-            publicIngestingLoading ? <div className="flex justify-center items-center ml-6"><BarLoader color="#FFFFFFC8" /></div>
-              :
-              <Button style={{
-                marginLeft: 10,
-                borderRadius: '1rem',
-              }} disabled={!publicRepo} onClick={() => onPublicRepoIngest(publicRepo)} variant="outline">Ingest</Button>
-          }
-        </div>
-        <div style={{
-          width: "80vw",
-          margin: "0 auto", // Center the div horizontally
-        }}>
-          <div style={{ textAlign: "center", marginTop: "5em", fontSize: "1rem", fontWeight: "bold" }} className=" text-md text-gray-500">or choose your own repo below...</div> {/* Added text below the input field */}
-          <table
-            style={{
-              marginTop: "2rem",
-              marginLeft: "auto",
-              marginRight: "auto",
-              outline: "solid 1px rgba(255, 255, 255, 0.1)",
-              borderRadius: "1em",
-            }} // Centering the table
-            className="w-full text-sm text-center rounded-xl overflow-hidden"
-          >
-            <thead className="text-md bg-gray-200 dark:bg-black dark:text-gray-300">
-              <tr>
-                <th className="px-6 py-3 border-b border-gray-300 dark:border-gray-600">Repo name</th>
-                <th className="px-6 py-3 border-b border-gray-300 dark:border-gray-600">URL</th>
-                <th className="px-6 py-3 border-b border-gray-300 dark:border-gray-600">Private/Public</th>
-                <th className="px-6 py-3 border-b border-gray-300 dark:border-gray-600">Action</th>
-              </tr>
-            </thead>
-            <tbody >
-              {!loader && tableRender}
-            </tbody>
-          </table>
-        </div>
-        {
-          !ghToken ? <div style={{ marginTop: 200 }} className="flex w-full justify-center mr-4">
-            <Button onClick={() => tokenModal.onOpen()} variant="default"><Icons.gitHub className="mr-2 size-4" /> Set github Token</Button>
-          </div>
-            :
-            loader && <div style={{ marginTop: 200 }} className="flex w-full justify-center mr-4">
-              <MoonLoader
-                color="#FFFFFFD8"
-                size={30}
-              />
+
+      {
+        ghToken === null || ghToken === "0" ? (
+          <div style={{ textAlign: "center", fontSize: "1rem", fontWeight: "normal", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "0 35%" }}>
+            <RiErrorWarningLine style={{ fontSize: "4rem", marginBottom: "2rem", color: "rgba(255, 255, 255, 0.90)" }} />
+            <div style={{ marginBottom: "2rem" }}>
+              <strong>Your GitHub Token is not set.</strong> It should look like "ghp_XXXXXXXXXXXXXXXXXX". <br />Please click the button below to set it up.<br />
             </div>
-        }
-      </div>
+            <Button variant={"outline"} className="rounded-3xl border-white border-2" onClick={() => tokenModal.onOpen()} >
+              <Icons.gitHub className="mr-2 size-5" /> Set GitHub Token
+            </Button>
+          </div>
+        ) : !isTokenValid ? (
+          <div style={{ textAlign: "center", fontSize: "1rem", fontWeight: "normal", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "0 35%" }}>
+            <RiErrorWarningLine style={{ fontSize: "4rem", marginBottom: "2rem", color: "rgba(255, 255, 255, 0.90)" }} />
+            <div style={{ marginBottom: "2rem" }}>
+              <strong>You haven't entered a valid GitHub Token.</strong> It should look like "ghp_XXXXXXXXXXXXXXXXXX". <br />Please click the button below to set it up.<br />
+            </div>
+            <Button variant={"outline"} className="rounded-3xl border-white border-2" onClick={() => tokenModal.onOpen()} >
+              <Icons.gitHub className="mr-2 size-5" /> Set GitHub Token
+            </Button>
+          </div>
+        ) : (
+          <div style={{ maxHeight: "100vh", overflow: "auto", paddingBottom: "15rem" }} className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <div style={{ marginTop: 10, width: "100%", maxWidth: "45rem" }} className="container absolute flex justify-center items-center left-0 right-0">
+              <Input style={{
+                borderRadius: '1rem',
+              }}
+                value={publicRepo} onChange={(e) => setPublicRepo(e.target.value)} placeholder="Paste public Github repo... (e.g https://github.com/openai/whisper)" />
+              {
+                publicIngestingLoading ? <div className="flex justify-center items-center ml-6"><BarLoader color="#FFFFFFC8" /></div>
+                  :
+                  <Button style={{
+                    marginLeft: 10,
+                    borderRadius: '1rem',
+                  }} disabled={!publicRepo} onClick={() => onPublicRepoIngest(publicRepo)} variant="outline">Ingest</Button>
+              }
+            </div>
+
+            {
+              loader ? (
+                <div style={{ marginTop: 200 }} className="flex w-full justify-center">
+                  <MoonLoader color="#FFFFFFD8" size={30} />
+                </div>
+              ) : repoList.length > 0 ? (
+                <div style={{
+                  width: "80vw",
+                  margin: "0 auto", // Center the div horizontally
+                }}>
+                  <div style={{ textAlign: "center", marginTop: "5em", fontSize: "1rem", fontWeight: "bold" }} className=" text-md text-gray-500">or choose your own repo below...</div> {/* Added text below the input field */}
+                  <table
+                    style={{
+                      marginTop: "2rem",
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                      outline: "solid 1px rgba(255, 255, 255, 0.2)",
+                      borderRadius: "2em",
+                    }} // Centering the table
+                    className="w-full text-sm text-center rounded-xl overflow-hidden"
+                  >
+                    <thead className="text-md bg-gray-200 dark:bg-black dark:text-gray-300">
+                      <tr>
+                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600 text-lg">Repo name</th>
+                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600 text-lg">URL</th>
+                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600 text-lg">Private/Public</th>
+                        <th className="px-8 py-6 border-b border-gray-300 dark:border-gray-600 text-lg">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody >
+                      {!loader && tableRender}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div style={{ textAlign: "center", fontSize: "1rem", fontWeight: "normal", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "0 35%" }}>
+                  <RiErrorWarningLine style={{ fontSize: "4rem", marginBottom: "2rem", color: "rgba(255, 255, 255, 0.90)" }} />
+                  <div style={{ marginBottom: "2rem" }}>
+                    <strong>You haven't entered your GitHub Token yet or it has expired.</strong> It should look like "ghp_XXXXXXXXXXXXXXXXXX". <br />Please click the button below to set it up.<br />
+                  </div>
+                  <Button variant={"outline"} className="rounded-3xl border-white border-2" onClick={() => tokenModal.onOpen()} >
+                    <Icons.gitHub className="mr-2 size-5" /> Set GitHub Token
+                  </Button>
+                </div>
+              )
+            }
+          </div>
+        )
+      }
     </DashboardShell>
   )
 }
+
 
