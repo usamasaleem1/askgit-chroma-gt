@@ -47,8 +47,8 @@ export function NavBar({ user, items, children, rightElements, scroll = false }:
         ? "border-b"
         : "bg-opacity-0"
         : "border-b"} bg-transparent`} // Change bg-background/0 to bg-opacity-0
-    >
 
+    >
       <div className="container flex h-16 items-center justify-between py-4">
         <MainNav items={items}>{children}</MainNav>
         <div className="flex items-center space-x-3">
@@ -60,9 +60,10 @@ export function NavBar({ user, items, children, rightElements, scroll = false }:
           ) : (
             <Link
               href="/login"
-              className={cn(
-                buttonVariants({ variant: "default", size: "sm" })
-              )}
+              className={
+                cn(
+                  buttonVariants({ variant: "default", size: "sm" })
+                )}
             >
               Login
             </Link>
@@ -70,7 +71,7 @@ export function NavBar({ user, items, children, rightElements, scroll = false }:
           )}
         </div>
       </div>
-    </header>
+    </header >
   );
 }
 
