@@ -45,14 +45,18 @@ export function ChatMessage({ message, isStream = false, user, ...props }: ChatM
   };
 
   useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
+    if (message.role === 'user') {
+      setStreamedText(message.content);
+    } else if (isStream) {
+      requestRef.current = requestAnimationFrame(animate);
+    }
 
     return () => {
       if (requestRef.current) {
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, [text, streamedText]);
+  }, [message, isStream]); // Updated dependencies
 
 
   return (

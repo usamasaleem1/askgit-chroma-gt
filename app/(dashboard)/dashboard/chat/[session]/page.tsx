@@ -82,9 +82,11 @@ export default function AiChat({ params, user }) {
             console.log(" === Error ===> ", error)
         }
     }, 500)
+    const [isBotReplying, setIsBotReplying] = useState<boolean>(false);
 
     const submitChat = debounce(async (submitInput = null) => {
         setLoading(true)
+        setIsBotReplying(true) // Set this when the chat is submitted
         try {
             setMessages((prev) => ([...prev, {
                 role: 'user',
@@ -112,7 +114,7 @@ export default function AiChat({ params, user }) {
 
                 historyApiCall(payload)
 
-
+                setIsBotReplying(false) // Reset this when the bot's response is received
 
             }
             setInput("")
@@ -128,7 +130,7 @@ export default function AiChat({ params, user }) {
         setInput(prevInput)
         setTimeout(() => {
             submitChat(prevInput)
-        }, 1000)
+        }, 100)
     }
 
     console.log(" ==== currentChat ====> ", currentChat)
@@ -185,6 +187,7 @@ export default function AiChat({ params, user }) {
                                             color: '#fff', // text color
                                             backgroundColor: state.isFocused ? 'rgba(255, 255, 255, 0.07)' : provided.backgroundColor, // Change background color to red when focused
                                             cursor: 'pointer', // Change background color to red when focused
+                                            borderRadius: "0.5em",
                                         }),
                                     }}
                                 />
@@ -245,11 +248,13 @@ export default function AiChat({ params, user }) {
                     <div style={{
                         overflow: 'auto',
                         height: '100vh',
-                        paddingBottom: '15%',
-                        // outline: "solid 1px red",
+                        paddingBottom: '20%',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
+                        scrollbarWidth: 'none', /* For Firefox */
+                        msOverflowStyle: 'none', /* For Internet Explorer and Edge */
+                        WebkitOverflowScrolling: 'touch', /* For smooth scrolling on iOS */
                     }} className="flex flex-col container">
                         {
                             (currentChat ?? []).map((item: any, index) => {
@@ -298,27 +303,26 @@ export default function AiChat({ params, user }) {
                             width: "100%",
                         }}>
                             {/* Action buttons */}
-                            <div className="flex flex-col justify-center items-center">
+                            {/* <div className="flex flex-col justify-center items-center">
                                 <div className="flex items-center justify-center h-12">
-                                    {isLoading ? (
+                                    {isBotReplying ? ( // If the bot is still generating a response
                                         <Button
                                             variant="outline"
-                                            onClick={() => stop()}
+                                            onClick={() => stop()} // Implement the stop function to interrupt the bot's response
                                             style={{
                                                 opacity: '90%',
                                                 backdropFilter: 'blur(100px)',
                                                 position: 'relative',
                                                 zIndex: '1',
-                                                // marginBottom: '2em',
                                             }}
                                         >
                                             <IconStop className="mr-2" />
                                             Stop generating
                                         </Button>
-                                    ) : prevInput !== "" && (
+                                    ) : ( // If the bot has finished generating a response
                                         <Button
                                             variant="outline"
-                                            onClick={() => regenerateResponse()}
+                                            onClick={() => regenerateResponse()} // Call regenerateResponse to generate a new response
                                             style={{
                                                 opacity: '90%',
                                                 backdropFilter: 'blur(100px)',
@@ -326,13 +330,14 @@ export default function AiChat({ params, user }) {
                                                 zIndex: '1',
                                                 marginBottom: '2em',
                                             }}
+                                            disabled={!prevInput} // Disable the button if there is no previous input
                                         >
                                             <IconRefresh className="mr-2" />
                                             Regenerate response
                                         </Button>
                                     )}
                                 </div>
-                            </div>
+                            </div> */}
                             <PromptForm
                                 isDisabled={!selectedOption}
                                 onSubmit={submitChat}
