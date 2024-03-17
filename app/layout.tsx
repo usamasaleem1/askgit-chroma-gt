@@ -60,7 +60,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             {children}
             <Toaster />
             <ModalProvider />
-            <TailwindIndicator />
           </ThemeProvider>
         </PHProvider>
       </body>
