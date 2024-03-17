@@ -2,6 +2,7 @@ import { getCurrentUser } from "@/lib/session";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import _ from "lodash"
+import { auth } from "@/lib/auth";
 
 
 // Handles GET requests to /api
@@ -10,6 +11,7 @@ export async function GET(request: Request, context: any) {
     let currentData: any = undefined;
     let message: String = "";
     let status: number = 200
+    const session: any = await auth()
     try {
         const { params } = context
 
@@ -17,7 +19,8 @@ export async function GET(request: Request, context: any) {
 
         const currentRes = await prisma.chatHistory.findMany({
             where: {
-                session: params.session
+                session: params.session,
+                user_id: session.user.id,
             }
         })
         currentData = currentRes
