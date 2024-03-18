@@ -25,7 +25,7 @@ export function ChatMessage({ message, isStream = false, user, ...props }: ChatM
   const requestRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
   const [text] = useState(message.content);
-  const speed = 1
+  const speed = 0.5;
 
   const animate = (timestamp: number) => {
     if (!startTimeRef.current) {
