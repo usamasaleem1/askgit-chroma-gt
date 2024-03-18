@@ -52,7 +52,7 @@ def chat_openai(repoName, question):
 
     # create the chain to answer questions 
     qa_chain = RetrievalQA.from_chain_type(
-                                    llm=ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.3, streaming=True, verbose=True), 
+                                    llm=ChatOpenAI(model_name="gpt-4", temperature=0.2, streaming=True, verbose=True), 
                                     chain_type="stuff", 
                                     retriever=retriever, 
                                     return_source_documents=True,
