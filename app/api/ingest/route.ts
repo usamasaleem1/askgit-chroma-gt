@@ -68,27 +68,35 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
-    let message: string
-    let status: number
-    let data: any
-    const session: any = await auth()
+    let message: string;
+    let status: number;
+    let data: any;
+    const session: any = await auth();
     try {
-        const res = await prisma.ingestedRepo.findMany({
-            select: {
-                repo_url: true,
-                repo_name: true
-                            },
+        const res = await prisma.ingestedRepo.groupBy({
+            by: ['repo_name'],
             where: {
                 user_id: session.user.id,
-            }
-        })
-        data = res
-        message = ' successfully'
-        status = 200
+            },
+            _max: {
+                repo_url: true,
+                // You can add other fields you might need, but only aggregations
+            },
+        });
+        // Transform the result to fit your data structure if needed
+        data = res.map(item => ({
+            repo_name: item.repo_name,
+            repo_url: item._max.repo_url, // This will give you the maximum URL, adjust as needed
+            // Include other fields as necessary
+        }));
+        message = 'Repositories fetched successfully';
+        status = 200;
     } catch (error) {
-        data = []
-        message = 'Something went wrong'
-        status = 501
+        console.error("Error fetching unique repositories:", error);
+        data = [];
+        message = 'Something went wrong';
+        status = 501;
     }
     return NextResponse.json({ message: message, status: status, data: data });
 }
+
