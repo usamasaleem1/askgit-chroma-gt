@@ -66,12 +66,12 @@ def chat_openai(repoName, question):
             continue
         res = qa_chain.invoke(query)
         process_llm_response(res)
-        print(type(res))
+        # print(type(res))
+        print([res])  # Print the result as if it was an array
         return res
-        
 ## Cite sources
 def process_llm_response(llm_response):
-    print(type(llm_response))
+    # print(type(llm_response))
     result = '\n' + llm_response['result'] + '\n\nSources:\n' + '\n'.join(source.metadata['source'] for source in llm_response["source_documents"])
-    print(result)
+    # print(result)
 
