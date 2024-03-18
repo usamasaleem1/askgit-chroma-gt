@@ -16,6 +16,8 @@ import Modal from 'react-modal';
 import { RiErrorWarningLine } from "react-icons/ri";
 
 export default function DashboardPage() {
+  const [isHovering, setIsHovering] = useState(true);
+
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [repoToIngest, setRepoToIngest] = useState(null);
   const [repoList, setRepoList] = useState([])
@@ -171,16 +173,24 @@ export default function DashboardPage() {
                   <>
                     {
                       ingestedRepo.includes(repo?.git_url) ?
-                        <Button variant="outline" onClick={() => {
-                          setShowConfirmationModal(true);
-                        }} style={{
-                          borderRadius: '4rem',
-                          backgroundColor: 'transparent',
-                          color: 'var(--color-primary)',
-                          paddingRight: '2rem',
-                          paddingLeft: '2rem',
-                          outline: "solid 2px #169E6C",
-                        }}>Ingested</Button>
+                        <Button
+                          variant="outline"
+                          onMouseEnter={() => setIsHovering(true)}
+                          onMouseLeave={() => setIsHovering(false)}
+                          onClick={() => {
+                            isHovering ? onRepoIngest(repo) : setShowConfirmationModal(true);
+                          }}
+                          style={{
+                            borderRadius: '4rem',
+                            backgroundColor: 'transparent',
+                            color: 'var(--color-primary)',
+                            paddingRight: '2rem',
+                            paddingLeft: '2rem',
+                            outline: "solid 2px #169E6C",
+                          }}
+                        >
+                          {isHovering ? "Reingest" : "Ingested"}
+                        </Button>
                         :
                         <Button
                           style={{
@@ -207,50 +217,7 @@ export default function DashboardPage() {
 
   return (
     <DashboardShell>
-      <Modal
-        isOpen={showConfirmationModal}
-        onRequestClose={() => setShowConfirmationModal(false)}
-        style={{
-          content: {
-            width: '28em', // Adjust width as needed
-            height: '11em', // Let the height adjust based on content
-            margin: 'auto', // Center horizontally
-            overflow: "hidden", // Hide scroll bars
-            borderRadius: '2em', // Add border radius for rounded corners
-            boxShadow: '0 0px 6px rgba(0, 0, 0, 0.5)', // Add shadow for depth
-            backgroundColor: 'rgba(0, 0, 0, 0.05)', // Add background color for dark mode
-            display: 'flex', // Center text horizontally
-            justifyContent: 'center', // Center text horizontally
-            alignItems: 'center', // Center text vertically
-            border: "2px solid #FFFFFF16",
-            backdropFilter: 'blur(25px)', // Add backdrop filter to blur the background
-          },
-          overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.4)', // Add overlay color with transparency
-          },
-        }}
-      >
-        <div className="text-center">
-          <p>This repo has <strong>already</strong> been ingested.<br />Are you sure you want to ingest again{repoToIngest}?</p>
-          <div className="mt-4">
-            <Button style={{
-              margin: 10,
-              borderRadius: '2rem',
-            }} variant="outline"
-              onClick={() => setShowConfirmationModal(false)}>Nevermind</Button>
-            <Button
-              style={{
-                margin: 10,
-                borderRadius: '2rem',
-              }}
-              variant="outline"
-              onClick={() => handleIngestConfirmation(repoToIngest)} // This will use the repo stored in repoToIngest
-            >
-              Proceed
-            </Button>
-          </div>
-        </div>
-      </Modal>
+
 
       {
         ghToken === null || ghToken === "0" ? (
