@@ -25,17 +25,21 @@ export function ChatMessage({ message, isStream = false, user, ...props }: ChatM
   const requestRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
   const [text] = useState(message.content);
-  const speed = 1
-
+  const charactersPerUpdate = 3; // Increase the number of characters added per update
+  const speed = 1; // Increase the speed of the animation
   const animate = (timestamp: number) => {
     if (!startTimeRef.current) {
       startTimeRef.current = timestamp;
     }
 
     const elapsed = timestamp - startTimeRef.current;
+    const updatesCount = Math.floor(elapsed / speed);
 
-    if (elapsed >= speed) {
-      setStreamedText((prevText) => prevText + text.charAt(prevText.length));
+    if (updatesCount > 0) {
+      setStreamedText((prevText) => {
+        const nextText = text.substring(0, prevText.length + charactersPerUpdate * updatesCount);
+        return nextText;
+      });
       startTimeRef.current = timestamp;
     }
 

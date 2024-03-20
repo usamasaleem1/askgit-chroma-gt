@@ -49,3 +49,4 @@ next-env.d.ts
 /backend/.env
 backend/script/__pycache__/chatChroma.cpython-311.pyc
 backend/__pycache__/main.cpython-311.pyc
+/backend/db

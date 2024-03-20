@@ -1,8 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
-     :root {
+    :root {
         /* Add this line to define the background image */
         --background: 0 0% 100%;
         --foreground: 240 10% 3.9%;
@@ -25,6 +26,7 @@
         --ring: 240 5.9% 10%;
         --radius: 0.5rem;
     }
+
     .dark {
         --background-image: url('/bg-blur.jpg');
         --foreground: 0 0% 98%;
@@ -52,6 +54,7 @@
     * {
         @apply border-border;
     }
+
     body {
         /* Replace the background color property with background image */
         background-image: var(--background-image);
@@ -105,4 +108,20 @@
     background-color: #9bea7c;
     color: #000;
     font-weight: 500;
+}
+
+@keyframes fadeInTopToBottom {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInTopToBottom {
+    animation: fadeInTopToBottom 0.5s ease-out forwards;
 }
