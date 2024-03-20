@@ -52,7 +52,7 @@ def chat_openai(repoName, question):
     Helpful Answer:"""
 
     QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context", "question"], template=template)
-    chat = ChatGroq(temperature=0.2, groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
+    chat = ChatGroq(temperature=0.2, groq_api_key="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", model_name="mixtral-8x7b-32768")
     
     # create the chain to answer questions 
     qa_chain = RetrievalQA.from_chain_type(
