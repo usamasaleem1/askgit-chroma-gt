@@ -147,6 +147,7 @@ export default function AiChat({ params, user }) {
     }
 
     console.log(" ==== currentChat ====> ", currentChat)
+    const [selectedRepo, setSelectedRepo] = useState(null);
 
     return (
         <DashboardShell>
@@ -159,8 +160,13 @@ export default function AiChat({ params, user }) {
                             <div className="px-2 my-1 list-item" >
                                 <Select
                                     placeholder="Select a Repo"
-                                    defaultValue={selectedOption}
-                                    onChange={setSelectedOption}
+                                    value={selectedOption}
+                                    onChange={(option) => {
+
+                                        if (option) {
+                                            setSelectedOption(option);
+                                        }
+                                    }}
                                     options={ingestedRepo.map((i: any) => ({
                                         label: i?.repo_name,
                                         value: i?.repo_name,

@@ -26,14 +26,15 @@ export function ChatMessageActions({
   return (
     <div
       className={cn(
-        'flex items-center justify-end transition-opacity group-hover:opacity-100 md:absolute md:-top-2 md:opacity-0',
+        'flex items-center justify-end transition-opacity group-hover:opacity-100 md:absolute md:-right-0 md:-top-2 md:opacity-0',
         className
       )}
       {...props}
     >
-      <Button variant="ghost" size="sm" onClick={onCopy}>
+      <Button variant="ghost" size="sm" onClick={onCopy} style={{
+        borderRadius: '1.5rem',
+      }}>
         {isCopied ? <IconCheck /> : <IconCopy />}
-        <span className="sr-only">Copy message</span>
       </Button>
     </div>
   )
