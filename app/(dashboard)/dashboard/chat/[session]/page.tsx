@@ -101,21 +101,33 @@ export default function AiChat({ params, user }) {
             if (res.data?.data?.data) {
                 const resData = res.data?.data?.data
 
+                // Extract source_documents and prepare source list
+                const sourceDocuments = resData?.source_documents;
+                // Process source file names
+                const sourceFiles = sourceDocuments?.map(doc => {
+                    // Remove 'repodata_txt/' prefix and trim the extra '.txt' extension
+                    let source = doc.metadata.source.replace('repodata_txt/', '');
+                    source = source.replace(/\.txt$/, '');
+                    return source;
+                });
+                const uniqueSourceFiles = Array.from(new Set(sourceFiles));
+                const sourcesList = uniqueSourceFiles.map(source => `- ${source}`).join('\n');
+                // Append sources to the result message
+                const messageContent = `${resData?.result}\n\nHere are my source(s):\n${sourcesList}`;
+
                 setMessages((prev) => ([...prev, {
                     role: 'ai',
-                    content: resData?.result
-                }])
-                )
+                    content: messageContent // Use the modified content with sources
+                }]))
+
+                // Modify the payload to include sources if needed
                 const payload = {
                     title: input,
-                    ai_result: resData?.result,
+                    ai_result: messageContent, // This now includes the result and sources
                     session: params?.session
                 }
-
                 historyApiCall(payload)
-
                 setIsBotReplying(false) // Reset this when the bot's response is received
-
             }
             setInput("")
 
@@ -126,6 +138,7 @@ export default function AiChat({ params, user }) {
         }
     }, 100)
 
+
     const regenerateResponse = () => {
         setInput(prevInput)
         setTimeout(() => {
@@ -134,6 +147,7 @@ export default function AiChat({ params, user }) {
     }
 
     console.log(" ==== currentChat ====> ", currentChat)
+    const [selectedRepo, setSelectedRepo] = useState(null);
 
     return (
         <DashboardShell>
@@ -146,8 +160,13 @@ export default function AiChat({ params, user }) {
                             <div className="px-2 my-1 list-item" >
                                 <Select
                                     placeholder="Select a Repo"
-                                    defaultValue={selectedOption}
-                                    onChange={setSelectedOption}
+                                    value={selectedOption}
+                                    onChange={(option) => {
+
+                                        if (option) {
+                                            setSelectedOption(option);
+                                        }
+                                    }}
                                     options={ingestedRepo.map((i: any) => ({
                                         label: i?.repo_name,
                                         value: i?.repo_name,
@@ -208,7 +227,7 @@ export default function AiChat({ params, user }) {
                             </div>
 
                             {
-                                sessionList.map((item: any, index: number) => {
+                                sessionList?.map((item: any, index: number) => {
                                     return (
 
                                         <div key={index} className="space-x-1 px-2 my-1 list-item">
