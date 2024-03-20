@@ -51,3 +51,9 @@ next-env.d.ts
 backend/script/__pycache__/chatChroma.cpython-311.pyc
 backend/__pycache__/main.cpython-311.pyc
 /backend/db
+backend/db/chroma.sqlite3
+backend/db/7d074774-4c04-4863-aa72-68e5ec6ecb3d/length.bin
+backend/db/705f2ad8-6c50-4a8e-8bfa-6e8dc9a396ca/link_lists.bin
+backend/db/705f2ad8-6c50-4a8e-8bfa-6e8dc9a396ca/length.bin
+backend/db/705f2ad8-6c50-4a8e-8bfa-6e8dc9a396ca/header.bin
+backend/db/705f2ad8-6c50-4a8e-8bfa-6e8dc9a396ca/data_level0.bin
