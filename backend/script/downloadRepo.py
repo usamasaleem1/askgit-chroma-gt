@@ -21,7 +21,7 @@ def download_directory(github_url=None):
     if os.path.exists(target_path):
         rmtree(target_path)
     # delete data_backup folder if it exists
-    data_backup_path = "repodata_txt"
+    data_backup_path = repo_url.split('/')[4]
     if os.path.exists(data_backup_path):
         rmtree(data_backup_path)
     print(f"Cloning {repo_url} to {target_path}...")

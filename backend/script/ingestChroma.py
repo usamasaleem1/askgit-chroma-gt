@@ -15,7 +15,7 @@ def ingestingRepositories(repoName):
     print("LOADED INGEST.PY")
     os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
     # Load and process the text files
-    loader = DirectoryLoader('./repodata_txt', glob="./*.txt", loader_cls=TextLoader)
+    loader = DirectoryLoader(f'./{repoName}.git', glob="./*.txt", loader_cls=TextLoader)
     # Supplying a persist_directory will store the embeddings on disk
     persist_directory = 'db'
     author_repoName = repoName # input("Enter the name of the collection (e.g., pinecone): ")
@@ -36,18 +36,28 @@ def ingestingRepositories(repoName):
     start_time = time.time()
 
     print("Ingesting...")
-    vectordb = Chroma.from_documents(documents=texts, 
-                                    embedding=embedding,
-                                    persist_directory=persist_directory,
-                                    collection_name=author_repoName,
-                                    )
+    try:
+        vectordb = Chroma.from_documents(documents=texts, 
+                                        embedding=embedding,
+                                        persist_directory=persist_directory,
+                                        collection_name=author_repoName,
+                                        )
+    except TimeoutError:
+        print("The operation timed out.")
+        return {"message": "The operation timed out."}        
     # delete RepoContents folder if it exists
     if os.path.exists('RepoContents'):
         rmtree('RepoContents')
     # delete data_backup folder if it exists
     if os.path.exists('repodata_txt'):
         rmtree('repodata_txt')
-        
+    
+    data_backup_path = f"{repoName}.git"
+    try:
+        rmtree(data_backup_path)
+        print(f"SUCCESS: Deleted cloned {data_backup_path} folder")
+    except OSError as e:
+        print(f"ERROR: Could not delete cloned {data_backup_path} folder: {e}")
     end_time = time.time()
     print(f"Time taken to ingest: {end_time - start_time} seconds")
 
@@ -55,6 +65,6 @@ def ingestingRepositories(repoName):
     vectordb.persist()
     vectordb = None
     
-    print("Ingestion complete")
+    print("Ingestion script complete")
     
 
