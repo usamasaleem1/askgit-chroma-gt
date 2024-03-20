@@ -8,3 +8,4 @@ python-dotenv~=1.0.1
 pysqlite3-binary~=0.5.2.post3
 langchain-openai~=0.0.6
 importlib-metadata~=6.11.0
+langchain_groq~=0.0.1
