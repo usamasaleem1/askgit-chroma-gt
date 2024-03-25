@@ -41,7 +41,7 @@ export default async function IndexPage() {
                             }}
                         >
                             <p>
-                                Speed run code reviews. Chat with your github repository using AI
+                                Speed run code reviews. Chat with your GitHub Repo using AI
                             </p>
                         </div>
 
