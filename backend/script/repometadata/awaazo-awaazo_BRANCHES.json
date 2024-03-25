@@ -1,0 +1,58 @@
+[
+    {
+        "name": "bugfix/fixed-GetPodcastByTagsAsync-SQL-injection",
+        "commit": {
+            "sha": "ab3dda9ec72a7f83a0cc3afc9a1deea2655b7c01",
+            "url": "https://api.github.com/repos/awaazo/awaazo/commits/ab3dda9ec72a7f83a0cc3afc9a1deea2655b7c01"
+        }
+    },
+    {
+        "name": "extension/AdminPanel",
+        "commit": {
+            "sha": "fc612da39ce1fe5c1715fcfabfc377a5291b02b4",
+            "url": "https://api.github.com/repos/awaazo/awaazo/commits/fc612da39ce1fe5c1715fcfabfc377a5291b02b4"
+        }
+    },
+    {
+        "name": "extension/Analytics",
+        "commit": {
+            "sha": "6fcdb135afb5c5c062d9dcb0b0a194e7ab57d3ba",
+            "url": "https://api.github.com/repos/awaazo/awaazo/commits/6fcdb135afb5c5c062d9dcb0b0a194e7ab57d3ba"
+        }
+    },
+    {
+        "name": "feat/added-register-user-email-verification",
+        "commit": {
+            "sha": "704a509d6da77b53acf6e7e9007a2e466ba37142",
+            "url": "https://api.github.com/repos/awaazo/awaazo/commits/704a509d6da77b53acf6e7e9007a2e466ba37142"
+        }
+    },
+    {
+        "name": "feature/ai_episodes",
+        "commit": {
+            "sha": "0f6772820da4cbc2aa32eb6d21a2e24e90d606e9",
+            "url": "https://api.github.com/repos/awaazo/awaazo/commits/0f6772820da4cbc2aa32eb6d21a2e24e90d606e9"
+        }
+    },
+    {
+        "name": "fix/MakeEndpointsPublic",
+        "commit": {
+            "sha": "287e705ce0123b2262c95e26a70818252c75aa1a",
+            "url": "https://api.github.com/repos/awaazo/awaazo/commits/287e705ce0123b2262c95e26a70818252c75aa1a"
+        }
+    },
+    {
+        "name": "jonathan-githubofficial-patch-1",
+        "commit": {
+            "sha": "95a0be83daf56a394e0953026b2121c9f89e165a",
+            "url": "https://api.github.com/repos/awaazo/awaazo/commits/95a0be83daf56a394e0953026b2121c9f89e165a"
+        }
+    },
+    {
+        "name": "main",
+        "commit": {
+            "sha": "c138b0a176d62a361918e2ed399e5785b6907a21",
+            "url": "https://api.github.com/repos/awaazo/awaazo/commits/c138b0a176d62a361918e2ed399e5785b6907a21"
+        }
+    }
+]

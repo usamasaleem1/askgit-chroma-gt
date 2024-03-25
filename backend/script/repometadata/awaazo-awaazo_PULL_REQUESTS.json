@@ -1,0 +1,38 @@
+[
+    {
+        "url": "https://api.github.com/repos/awaazo/awaazo/pulls/436",
+        "id": 1776236441,
+        "state": "open",
+        "title": "Feat/added register user email verification",
+        "user_login": "shadijiha",
+        "body": "This is linked to #276 \r\n\r\n@usamasaleem1 @Radwanbaba13 On the frontend you need to implement the `/verifyemail` route\r\n\r\nThe `/verifyemail` route should sent a post request to `/auth/verifyemail` with the verification token in the request body",
+        "created_at": "2024-03-17T22:37:15Z",
+        "updated_at": "2024-03-25T16:45:36Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": "af21a32bc75bd8e8141f07f8fe1a95a7a389b135",
+        "labels": [
+            "\u2b50 goal: addition",
+            "\ud83d\udfe8 priority: medium",
+            "Backend"
+        ]
+    },
+    {
+        "url": "https://api.github.com/repos/awaazo/awaazo/pulls/435",
+        "id": 1776229185,
+        "state": "open",
+        "title": "Fixed bug where PodcastService.GetPodcastsByTagsAsync was vunerable to SQL injection",
+        "user_login": "shadijiha",
+        "body": "Closes #336 ",
+        "created_at": "2024-03-17T22:13:17Z",
+        "updated_at": "2024-03-25T16:35:49Z",
+        "closed_at": null,
+        "merged_at": null,
+        "merge_commit_sha": "0968cc26364b16c3b6ebf447c2b7bc3f78876c19",
+        "labels": [
+            "\ud83d\udee0\ufe0f goal: fix",
+            "\ud83d\udfe7 priority: high",
+            "Backend"
+        ]
+    }
+]

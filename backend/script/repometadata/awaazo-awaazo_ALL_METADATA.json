@@ -1,0 +1,551 @@
+{
+    "repository": {
+        "author": "awaazo/awaazo",
+        "owner_login": "awaazo",
+        "description": "Discover, create, and engage. Awaazo offers an extensive library of diverse podcasts, tools for AI-enhanced content creation, and a community platform to share, comment, and connect with creators.",
+        "forks_count": 0,
+        "open_issues_count": 17,
+        "watchers": 4,
+        "last_updated": "2024-03-25T17:56:16Z"
+    },
+    "issues": [
+        {
+            "issue_number": 436,
+            "title": "Feat/added register user email verification",
+            "opened_by": "shadijiha",
+            "labels": [
+                {
+                    "name": "\u2b50 goal: addition",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%E2%AD%90%20goal:%20addition",
+                    "description": "Adding a feature"
+                },
+                {
+                    "name": "\ud83d\udfe8 priority: medium",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A8%20priority:%20medium",
+                    "description": ""
+                },
+                {
+                    "name": "Backend",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/Backend",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-03-17T22:37:15Z",
+            "updated_at": "2024-03-25T16:45:36Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 435,
+            "title": "Fixed bug where PodcastService.GetPodcastsByTagsAsync was vunerable to SQL injection",
+            "opened_by": "shadijiha",
+            "labels": [
+                {
+                    "name": "\ud83d\udee0\ufe0f goal: fix",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9B%A0%EF%B8%8F%20goal:%20fix",
+                    "description": "Fix an problem"
+                },
+                {
+                    "name": "\ud83d\udfe7 priority: high",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A7%20priority:%20high",
+                    "description": ""
+                },
+                {
+                    "name": "Backend",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/Backend",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-03-17T22:13:17Z",
+            "updated_at": "2024-03-25T16:35:49Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 419,
+            "title": "Retrieval of Personalized Podcast Highlights",
+            "opened_by": "jonathan-githubofficial",
+            "labels": [
+                {
+                    "name": "\ud83d\udd22 points: 3",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%203",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe7 priority: high",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A7%20priority:%20high",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83e\uddd1\u200d\ud83d\udcbb dev stroy",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB%20dev%20stroy",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-03-04T19:11:31Z",
+            "updated_at": "2024-03-25T14:23:52Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 418,
+            "title": "Implementing Podcast Highlights Feature",
+            "opened_by": "jonathan-githubofficial",
+            "labels": [
+                {
+                    "name": "\ud83d\udc64user story",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%91%A4user%20story",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83d\udd22 points: 8",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%208",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe8 priority: medium",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A8%20priority:%20medium",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-03-04T18:39:36Z",
+            "updated_at": "2024-03-23T21:30:47Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 386,
+            "title": "As a user, I want the ability to use Awaazo as a progressive web app",
+            "opened_by": "usamasaleem1",
+            "labels": [
+                {
+                    "name": "\u2b50 goal: addition",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%E2%AD%90%20goal:%20addition",
+                    "description": "Adding a feature"
+                },
+                {
+                    "name": "\ud83d\udd22 points: 1",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%201",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe8 priority: medium",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A8%20priority:%20medium",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-02-08T04:33:08Z",
+            "updated_at": "2024-03-25T14:17:44Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 376,
+            "title": "As a system administrator  , I want to have an admin-only endpoint to delete transcripts of podcast episodes ,  So that I can manage and maintain the integrity and relevance of the podcast transcript database effectively.",
+            "opened_by": "jonathan-githubofficial",
+            "labels": [
+                {
+                    "name": "\ud83d\udd22 points: 1",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%201",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe9 priority: low",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A9%20priority:%20low",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83e\uddd1\u200d\ud83d\udcbb dev stroy",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB%20dev%20stroy",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-02-03T09:57:22Z",
+            "updated_at": "2024-03-25T14:23:55Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 364,
+            "title": "As a frontend developer, I want to create detailed Figma mockups for each key module, so that we have a cohesive and visually guided approach for frontend development across the entire application.",
+            "opened_by": "Radwanbaba13",
+            "labels": [
+                {
+                    "name": "\ud83d\udd22 points: 5",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%205",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe8 priority: medium",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A8%20priority:%20medium",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83e\uddd1\u200d\ud83d\udcbb dev stroy",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB%20dev%20stroy",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-01-30T02:58:12Z",
+            "updated_at": "2024-03-11T16:22:03Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 355,
+            "title": "Request to Change privacy Attribute in Playlist from String to Binary",
+            "opened_by": "jonathan-githubofficial",
+            "labels": [
+                {
+                    "name": "\ud83d\udee0\ufe0f goal: fix",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9B%A0%EF%B8%8F%20goal:%20fix",
+                    "description": "Fix an problem"
+                },
+                {
+                    "name": "\ud83d\udd22 points: 1",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%201",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe9 priority: low",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A9%20priority:%20low",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-01-29T08:25:27Z",
+            "updated_at": "2024-03-11T16:22:25Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 339,
+            "title": "As a user, I want to access insights about my listening habits, so that I can better understand my usage patterns",
+            "opened_by": "mathieutrudeau",
+            "labels": [
+                {
+                    "name": "\ud83d\udc64user story",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%91%A4user%20story",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83d\udd22 points: 8",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%208",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe8 priority: medium",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A8%20priority:%20medium",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-01-25T13:04:42Z",
+            "updated_at": "2024-03-25T15:56:59Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 338,
+            "title": "As a podcaster, I want to access analytics about my podcasts, so that I can gain a better understanding of my audience",
+            "opened_by": "mathieutrudeau",
+            "labels": [
+                {
+                    "name": "\ud83d\udc64user story",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%91%A4user%20story",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83d\udd22 points: 8",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%208",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe8 priority: medium",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A8%20priority:%20medium",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-01-25T12:59:08Z",
+            "updated_at": "2024-03-25T15:57:05Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 336,
+            "title": "GetPodcastsByTagsAsync method in PodcastController is vunerable to SQL injection ",
+            "opened_by": "shadijiha",
+            "labels": [
+                {
+                    "name": "\ud83d\udee0\ufe0f goal: fix",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9B%A0%EF%B8%8F%20goal:%20fix",
+                    "description": "Fix an problem"
+                },
+                {
+                    "name": "\ud83d\udd22 points: 1",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%201",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe5 priority: critical",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A5%20priority:%20critical",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-01-25T00:14:36Z",
+            "updated_at": "2024-03-11T16:21:49Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 325,
+            "title": "Sign In with Google Account Bug",
+            "opened_by": "mathieutrudeau",
+            "labels": [
+                {
+                    "name": "\ud83d\udee0\ufe0f goal: fix",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9B%A0%EF%B8%8F%20goal:%20fix",
+                    "description": "Fix an problem"
+                },
+                {
+                    "name": "\ud83d\udd22 points: 1",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%201",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe8 priority: medium",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A8%20priority:%20medium",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-01-22T16:27:44Z",
+            "updated_at": "2024-03-23T21:31:08Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 324,
+            "title": "Create Podcast Image Upload and 'Done' button not fully visible in CreatorHub",
+            "opened_by": "soni2261",
+            "labels": [
+                {
+                    "name": "\ud83d\udee0\ufe0f goal: fix",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9B%A0%EF%B8%8F%20goal:%20fix",
+                    "description": "Fix an problem"
+                },
+                {
+                    "name": "\ud83d\udd22 points: 1",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%201",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe9 priority: low",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A9%20priority:%20low",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-01-22T14:30:52Z",
+            "updated_at": "2024-03-11T16:22:11Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 309,
+            "title": "As a frontend developer, I want an endpoint that will store the playlist queue  (list of episodes) the user last had in the player.",
+            "opened_by": "Radwanbaba13",
+            "labels": [
+                {
+                    "name": "\ud83d\udd22 points: 2",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%202",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe8 priority: medium",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A8%20priority:%20medium",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83e\uddd1\u200d\ud83d\udcbb dev stroy",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB%20dev%20stroy",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-01-17T22:37:55Z",
+            "updated_at": "2024-03-25T14:23:59Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 276,
+            "title": "As a sys admin, I want new users to verify their email addresses during the signup process, so that we can ensure each account is linked to a valid and accessible email.",
+            "opened_by": "jonathan-githubofficial",
+            "labels": [
+                {
+                    "name": "\ud83d\udc64user story",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%91%A4user%20story",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83d\udd22 points: 2",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%202",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe8 priority: medium",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A8%20priority:%20medium",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2024-01-06T11:36:29Z",
+            "updated_at": "2024-03-11T16:21:58Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 25,
+            "title": "As a listener, I want to access AI-generated summaries of an episode, to determine its relevance to my interests.",
+            "opened_by": "sFranchetto",
+            "labels": [
+                {
+                    "name": "\ud83d\udc64user story",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%91%A4user%20story",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83d\udd22 points: 13",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%2013",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe9 priority: low",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A9%20priority:%20low",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2023-09-28T14:20:04Z",
+            "updated_at": "2024-03-11T16:21:40Z",
+            "closed_at": null
+        },
+        {
+            "issue_number": 13,
+            "title": "As an admin, I want the ability to enable or disable user accounts to effectively manage the website and optimize resource allocation.",
+            "opened_by": "sFranchetto",
+            "labels": [
+                {
+                    "name": "\ud83d\udc64user story",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%91%A4user%20story",
+                    "description": ""
+                },
+                {
+                    "name": "\ud83d\udd22 points: 1",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%94%A2%20points:%201",
+                    "description": "Fibonacci sequence estimations"
+                },
+                {
+                    "name": "\ud83d\udfe9 priority: low",
+                    "url": "https://api.github.com/repos/awaazo/awaazo/labels/%F0%9F%9F%A9%20priority:%20low",
+                    "description": ""
+                }
+            ],
+            "state": "open",
+            "created_at": "2023-09-25T21:20:15Z",
+            "updated_at": "2024-03-11T16:22:35Z",
+            "closed_at": null
+        }
+    ],
+    "pull_requests": [
+        {
+            "url": "https://api.github.com/repos/awaazo/awaazo/pulls/436",
+            "id": 1776236441,
+            "state": "open",
+            "title": "Feat/added register user email verification",
+            "user_login": "shadijiha",
+            "body": "This is linked to #276 \r\n\r\n@usamasaleem1 @Radwanbaba13 On the frontend you need to implement the `/verifyemail` route\r\n\r\nThe `/verifyemail` route should sent a post request to `/auth/verifyemail` with the verification token in the request body",
+            "created_at": "2024-03-17T22:37:15Z",
+            "updated_at": "2024-03-25T16:45:36Z",
+            "closed_at": null,
+            "merged_at": null,
+            "merge_commit_sha": "af21a32bc75bd8e8141f07f8fe1a95a7a389b135",
+            "labels": [
+                "\u2b50 goal: addition",
+                "\ud83d\udfe8 priority: medium",
+                "Backend"
+            ]
+        },
+        {
+            "url": "https://api.github.com/repos/awaazo/awaazo/pulls/435",
+            "id": 1776229185,
+            "state": "open",
+            "title": "Fixed bug where PodcastService.GetPodcastsByTagsAsync was vunerable to SQL injection",
+            "user_login": "shadijiha",
+            "body": "Closes #336 ",
+            "created_at": "2024-03-17T22:13:17Z",
+            "updated_at": "2024-03-25T16:35:49Z",
+            "closed_at": null,
+            "merged_at": null,
+            "merge_commit_sha": "0968cc26364b16c3b6ebf447c2b7bc3f78876c19",
+            "labels": [
+                "\ud83d\udee0\ufe0f goal: fix",
+                "\ud83d\udfe7 priority: high",
+                "Backend"
+            ]
+        }
+    ],
+    "branches": [
+        {
+            "name": "bugfix/fixed-GetPodcastByTagsAsync-SQL-injection",
+            "commit": {
+                "sha": "ab3dda9ec72a7f83a0cc3afc9a1deea2655b7c01",
+                "url": "https://api.github.com/repos/awaazo/awaazo/commits/ab3dda9ec72a7f83a0cc3afc9a1deea2655b7c01"
+            }
+        },
+        {
+            "name": "extension/AdminPanel",
+            "commit": {
+                "sha": "fc612da39ce1fe5c1715fcfabfc377a5291b02b4",
+                "url": "https://api.github.com/repos/awaazo/awaazo/commits/fc612da39ce1fe5c1715fcfabfc377a5291b02b4"
+            }
+        },
+        {
+            "name": "extension/Analytics",
+            "commit": {
+                "sha": "6fcdb135afb5c5c062d9dcb0b0a194e7ab57d3ba",
+                "url": "https://api.github.com/repos/awaazo/awaazo/commits/6fcdb135afb5c5c062d9dcb0b0a194e7ab57d3ba"
+            }
+        },
+        {
+            "name": "feat/added-register-user-email-verification",
+            "commit": {
+                "sha": "704a509d6da77b53acf6e7e9007a2e466ba37142",
+                "url": "https://api.github.com/repos/awaazo/awaazo/commits/704a509d6da77b53acf6e7e9007a2e466ba37142"
+            }
+        },
+        {
+            "name": "feature/ai_episodes",
+            "commit": {
+                "sha": "0f6772820da4cbc2aa32eb6d21a2e24e90d606e9",
+                "url": "https://api.github.com/repos/awaazo/awaazo/commits/0f6772820da4cbc2aa32eb6d21a2e24e90d606e9"
+            }
+        },
+        {
+            "name": "fix/MakeEndpointsPublic",
+            "commit": {
+                "sha": "287e705ce0123b2262c95e26a70818252c75aa1a",
+                "url": "https://api.github.com/repos/awaazo/awaazo/commits/287e705ce0123b2262c95e26a70818252c75aa1a"
+            }
+        },
+        {
+            "name": "jonathan-githubofficial-patch-1",
+            "commit": {
+                "sha": "95a0be83daf56a394e0953026b2121c9f89e165a",
+                "url": "https://api.github.com/repos/awaazo/awaazo/commits/95a0be83daf56a394e0953026b2121c9f89e165a"
+            }
+        },
+        {
+            "name": "main",
+            "commit": {
+                "sha": "c138b0a176d62a361918e2ed399e5785b6907a21",
+                "url": "https://api.github.com/repos/awaazo/awaazo/commits/c138b0a176d62a361918e2ed399e5785b6907a21"
+            }
+        }
+    ]
+}
