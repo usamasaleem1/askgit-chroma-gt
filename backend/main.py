@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from script.downloadRepo import download_directory
-from script.ingestChroma import ingestingRepositories
+from script.downloadRepo import download_directory, download_metadata
+from script.ingestChroma import ingestingRepositories, ingest_metadata_to_sql
 from script.chatChroma import chat_openai
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -33,10 +33,12 @@ async def index():
 @app.post("/downloadrepo")
 async def downloadRepo(req: Model):
    download_directory(req.repoUrl)
+   download_metadata(req.repoUrl)
    return {"message": "Download successfully"}
 
 @app.post("/ingesting")
 async def ingestRepo(req: ModelIngest):
+   ingest_metadata_to_sql(req.repoName)
    ingestingRepositories(req.repoName)
    return {"message": "Ingesting repository successfully"}
 

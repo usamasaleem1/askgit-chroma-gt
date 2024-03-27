@@ -1,0 +1,83 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET Backend CI
+
+# Action Triggers
+on:
+  workflow_call:
+ 
+jobs:
+  build:
+    name: Backend Test
+    runs-on: ubuntu-latest
+
+    # Setup the .NET environment
+    steps:
+
+    # Checkout Changes
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    # Add appsettings.Development.json + appsettings.json for tests
+    - name: Add Config Backend Tests
+      working-directory: Backend/Backend.Tests
+      env:
+        settings: ${{ vars.APPSETTINGSBACKEND }}
+      run: |
+        touch appsettings.Development.json
+        touch appsettings.json
+        echo $settings > appsettings.Development.json
+        echo $settings > appsettings.json
+
+    # Install .NET 6
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+
+    # Delete the old migration folder
+    - name: Delete Any Existing Migrations
+      run: rm -rf Backend/Backend/Migrations
+
+    # Create the new migration
+    - name: Create New Migration
+      run: |
+        cd Backend/Backend
+        dotnet tool install --global dotnet-ef
+        dotnet tool restore
+        dotnet ef migrations add new_Migration -o Migrations
+
+    # Install the Test Report Tool
+    - name: Install Report Generator
+      run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+    # Restore Dependencies for Test Project
+    - name: Restore dependencies
+      working-directory: Backend/Backend.Tests
+      run: dotnet restore Backend.Tests.csproj
+    
+    # Build the Test Project
+    - name: Build
+      working-directory: Backend/Backend.Tests
+      run: dotnet build --no-restore Backend.Tests.csproj
+
+    # Run the Tests
+    - name: Test
+      working-directory: Backend/Backend.Tests
+      run: dotnet test Backend.Tests.csproj --no-build --collect:"XPlat Code Coverage" --verbosity normal
+    
+    # Generate the Test Report
+    - name: Generate Report
+      working-directory: Backend/Backend.Tests
+      run: |
+        cd TestResults
+        cd [a-zA-Z0-9]*
+        reportgenerator -reports:"coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
+    
+    # Upload the Test Results Report
+    - name: Uploading Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: testrun-result
+        path: Backend/Backend.Tests/TestResults
