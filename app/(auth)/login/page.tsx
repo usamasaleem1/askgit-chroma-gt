@@ -5,110 +5,39 @@ import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/shared/icons"
 import { UserAuthForm } from "@/components/forms/user-auth-form"
-import Image from 'next/image'
-import bg from '@/public/bg.jpg'
 
 export const metadata: Metadata = {
-  title: "AskGit - Login",
+  title: "Login",
   description: "Login to your account",
 }
 
 export default function LoginPage() {
   return (
     <>
-      <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
-        <Image
-          src={bg}
-          alt="Background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0))',
-            zIndex: 0,
-          }}
-        />
-        <section style={{
-          paddingTop: "20vh",
-        }}>
-          <div className="container flex max-w-[64rem] flex-col items-center gap-5 text-center">
-            <h1
-              className="animate-fade-up text-balance font-urban text-4xl font-extrabold tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
-              style={{ animationDelay: "0.25s", animationFillMode: "forwards", textShadow: "2px 0px 40px 5px rgba(0,0,0,0.9)" }}
-            >
-              Welcome to{" "}
-              <span className="text-gradient_indigo-purple font-extrabold" style={{ textShadow: "1px 1px 2px rgba(0,0,0,0.0)" }}>
-                AskGit
-              </span>
-            </h1>
-
-            <div
-              className="max-w-[72rem] animate-fade-up text-balance leading-normal text-muted-foreground opacity-0 sm:text-xl sm:leading-8"
-              style={{
-                animationDelay: "0.35s", animationFillMode: "forwards", fontWeight: "700", backdropFilter: "blur(15px)",
-                outline: "solid 1px rgba(255, 255, 255, 0.2)",
-                paddingLeft: "2rem",
-                paddingRight: "2rem",
-                paddingTop: "1rem",
-                paddingBottom: "1rem",
-                borderRadius: "1em",
-                backgroundColor: "rgba(0, 0, 0, 0.05)", // Adjust transparency as needed
-                marginTop: "1rem",
-                marginBottom: "1rem",
-
-              }}
-            >
-              <p>
-                To get started, login with your GitHub Account
+      <div style={{
+        backgroundImage: "linear-gradient(200deg, #171819, #1A1A1E, #45454F)",
+        backgroundSize: "100% 100%",
+        height: "100vh",
+        backgroundPosition: "center",
+      }}>
+        <div className="container flex h-screen w-screen flex-col items-center justify-center">
+          <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+            <div className="flex flex-col space-y-2 text-center">
+              <div className="flex justify-center items-center">
+                <Icons.logo className="size-6" />
+                <span style={{ fontSize: 'medium', fontWeight: 'bold', padding: "10px" }}>Hi there!</span>
+              </div>
+              <h1 className="text-2xl font-semibold tracking-tight">
+                Welcome to AskGit
+              </h1>
+              <p className="text-sm text-muted-foreground">
+                Start by logging in with your GitHub account.
               </p>
             </div>
-
-            <div
-              className="flex animate-fade-up justify-center space-x-2 opacity-0 md:space-x-4"
-              style={{ animationDelay: "0.4s", animationFillMode: "forwards", textShadow: "1px 1px 2px rgba(0,0,0,0.2)", position: "relative", backdropFilter: "blur(10px)", zIndex: 1, borderRadius: "5em", }}
-            >
-              <UserAuthForm />
-            </div>
-
-
+            <UserAuthForm />
           </div>
-        </section >
-        <div className="video-container"
-          style={{
-            position: 'relative',
-            paddingTop: '56.25%',
-            marginTop: '2rem',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <iframe
-            className="responsive-iframe"
-            style={{
-              position: 'absolute',
-              top: '0',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '40%',
-              height: '40%',
-              border: 'none',
-            }}
-            src="https://www.youtube.com/embed/IBzEJk5PCbw?"
-            title="YouTube video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          >
-          </iframe>
         </div>
       </div>
-
     </>
   )
 }

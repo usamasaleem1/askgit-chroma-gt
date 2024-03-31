@@ -125,28 +125,3 @@
 .fadeInTopToBottom {
     animation: fadeInTopToBottom 0.5s ease-out forwards;
 }
-
-
-/* Default styles for small windows */
-
-.responsive-iframe {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 80%;
-    border: none;
-}
-
-
-/* Media query for larger windows */
-
-@media (min-width: 768px) {
-    .responsive-iframe {
-        width: '40%';
-        /* Smaller width for larger windows */
-        height: '40%';
-        /* Adjust height accordingly if needed */
-    }
-}
