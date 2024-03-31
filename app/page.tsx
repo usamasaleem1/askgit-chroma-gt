@@ -19,9 +19,11 @@ export default async function IndexPage() {
                             className="animate-fade-up text-balance font-urban text-4xl font-extrabold tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
                             style={{ animationDelay: "0.25s", animationFillMode: "forwards", textShadow: "2px 2px 4px rgba(0,0,0,0.9)" }}
                         >
-                            Chat with your Repo using{" "}
-                            <span className="text-gradient_indigo-purple font-extrabold" style={{ textShadow: "1px 1px 2px rgba(0,0,0,0.0)" }}>
-                                AskGit
+                            Chat with Your Repo Using{" "}
+                            <span className="text-gradient_indigo-purple font-extrabold" style={{
+                                textShadow: "1px 1px 2px rgba(0,0,0,0.0)",
+                            }}>
+                                {'AskGit'}
                             </span>
                         </h1>
 
@@ -29,7 +31,7 @@ export default async function IndexPage() {
                             className="max-w-[72rem] animate-fade-up text-balance leading-normal text-muted-foreground opacity-0 sm:text-xl sm:leading-8"
                             style={{
                                 animationDelay: "0.35s", animationFillMode: "forwards", fontWeight: "700", backdropFilter: "blur(15px)",
-                                outline: "solid 1px rgba(255, 255, 255, 0.2)",
+                                outline: "solid 2px rgba(255, 255, 255, 0.12)",
                                 paddingLeft: "2rem",
                                 paddingRight: "2rem",
                                 paddingTop: "1rem",
@@ -41,7 +43,7 @@ export default async function IndexPage() {
                             }}
                         >
                             <p>
-                                Speed run code reviews. Chat with your GitHub Repo using AI
+                                Speed run code reviews. Chat with your GitHub repository using AI ✨
                             </p>
                         </div>
 
@@ -53,7 +55,7 @@ export default async function IndexPage() {
                                 textShadow: "0px 0px 4px rgba(0,0,0,0.1)",
                                 // boxShadow: "0 0 30px 10px rgba(0, 0, 0, 1)",
                                 borderRadius: "5em",
-                                backgroundColor: "rgba(255, 255, 255, 0.12)", // Adjust transparency as needed
+                                backgroundColor: "rgba(255, 255, 255, 0.05)", // Adjust transparency as needed
                                 zIndex: 1, // Ensure the button is on top of the blurred background
                                 color: "white",
                                 paddingLeft: "2.5rem", // Increased padding
@@ -63,7 +65,7 @@ export default async function IndexPage() {
                                 fontSize: "1.1rem", // Increased font size
                                 fontWeight: "700",
                                 opacity: "0.9",
-                                border: "solid 1px rgba(255, 255, 255, 0.6)",
+                                border: "solid 1px rgba(255, 255, 255, 0.5)",
                             }}>
                                 Start Chatting
                             </Link>
@@ -72,6 +74,33 @@ export default async function IndexPage() {
 
                     </div>
                 </section >
+                <div className="video-container"
+                    style={{
+                        position: 'relative',
+                        paddingTop: '56.25%',
+                        marginTop: '2rem',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}>
+                    <iframe
+                        className="responsive-iframe"
+                        style={{
+                            position: 'absolute',
+                            top: '0',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            width: '40%',
+                            height: '40%',
+                            border: 'none',
+                        }}
+                        src="https://www.youtube.com/embed/IBzEJk5PCbw?"
+                        title="YouTube video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    >
+                    </iframe>
+                </div>
             </div >
         </>
     );
