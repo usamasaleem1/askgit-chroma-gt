@@ -14,4 +14,5 @@ COPY . /app/
 
 EXPOSE 8000
 
-ENTRYPOINT ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0"]
+ENTRYPOINT ["python", "-m", "gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "myapp:app", "--host", "0.0.0.0"]
+
