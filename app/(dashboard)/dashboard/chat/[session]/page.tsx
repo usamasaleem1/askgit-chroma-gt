@@ -148,7 +148,6 @@ export default function AiChat({ params, user }) {
 
     console.log(" ==== currentChat ====> ", currentChat)
     const [selectedRepo, setSelectedRepo] = useState(null);
-    const newChatButtonRef = useRef(null);
     return (
         <DashboardShell>
             <div>
@@ -162,9 +161,6 @@ export default function AiChat({ params, user }) {
                                     placeholder="Select a Repo"
                                     value={selectedOption}
                                     onChange={(option) => {
-                                        if (newChatButtonRef.current as unknown as HTMLElement) {
-                                            (newChatButtonRef.current as unknown as HTMLElement).click();
-                                        }
                                         if (option) {
                                             setSelectedOption(option);
                                         }
@@ -216,7 +212,6 @@ export default function AiChat({ params, user }) {
 
                             <div className="px-2 my-1 list-item">
                                 <Link
-                                    ref={newChatButtonRef}
                                     href={`/dashboard/chat/${Math.random().toString(36).slice(2)}`}
                                     className='h-10 w-full justify-start bg-zinc-50 px-4 shadow-none transition-colors hover:bg-zinc-200/40 dark:bg-zinc-900 dark:hover:bg-zinc-300/10'
                                     style={{
