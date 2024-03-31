@@ -24,7 +24,7 @@ def ingestingRepositories(repoName):
 
     #splitting the text into
     print("Splitting...")
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=2500, chunk_overlap=500)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1200, chunk_overlap=200)
     texts = text_splitter.split_documents(documents)
 
     # Embed and store the texts
@@ -45,6 +45,9 @@ def ingestingRepositories(repoName):
     except TimeoutError:
         print("The operation timed out.")
         return {"message": "The operation timed out."}        
+    except Exception as e:
+        print(f"ERROR: {e}")
+        return {"message": f"ERROR: {e}"}
     # delete RepoContents folder if it exists
     if os.path.exists('RepoContents'):
         rmtree('RepoContents')
