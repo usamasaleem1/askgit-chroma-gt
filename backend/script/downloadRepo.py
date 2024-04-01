@@ -40,7 +40,7 @@ def download_directory(github_url=None):
         for file in files:
             file_path = os.path.join(root, file)
             if os.path.isfile(file_path):
-                if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.svg')):
                     continue
                 elif is_text_file(file_path):
                     print(f"Copying {file_path} to {data_backup_path}")

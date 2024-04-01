@@ -23,33 +23,43 @@ def ingestingRepositories(repoName):
 
     #splitting the text into
     print("Splitting...")
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1200, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1200, chunk_overlap=200,  separators=["\n\n", "\n", ". ", " ", ""])
     texts = text_splitter.split_documents(documents)
 
     # Embed and store the texts
     ## here we are using OpenAI embeddings but in future we will swap out to local embeddings
     print("Embedding...")
-    embedding = OpenAIEmbeddings(disallowed_special=())
+    embedding = OpenAIEmbeddings(disallowed_special=(), show_progress_bar=True)
 
     import time
     start_time = time.time()
 
     print("Ingesting...")
     try:
-        vectordb = Chroma.from_documents(documents=texts, 
+        vectordb = Chroma.from_documents(
+                                        documents=texts, 
                                         embedding=embedding,
                                         persist_directory=persist_directory,
                                         collection_name=author_repoName,
                                         )
     except TimeoutError:
         print("The operation timed out.")
-        return {"message": "The operation timed out."}        
+        return {"message": "The operation timed out."}   
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return {"message": f"An error occurred: {e}"}
+         
     # delete RepoContents folder if it exists
     if os.path.exists('RepoContents'):
         rmtree('RepoContents')
     # delete data_backup folder if it exists
     if os.path.exists('repodata_txt'):
         rmtree('repodata_txt')
+    # delete repometadata folder if it exists
+    if os.path.exists('repometadata'):
+        rmtree('repometadata')
+    # delete cloned repo folder if it exists
+        rm_repo = f"{repoName}.git"
     
     data_backup_path = f"{repoName}.git"
     try:

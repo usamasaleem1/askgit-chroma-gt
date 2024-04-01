@@ -99,6 +99,7 @@ export default function AiChat({ params, user }) {
                 repoName: selectedOption?.value,
             })
             if (res.data?.data?.data) {
+                console.log("DATA HERE", res.data?.data?.data)
                 const resData = res.data?.data?.data
 
                 // Extract source_documents and prepare source list
@@ -110,10 +111,9 @@ export default function AiChat({ params, user }) {
                     source = source.replace(/\.txt$/, '');
                     return source;
                 });
-                const uniqueSourceFiles = Array.from(new Set(sourceFiles));
-                const sourcesList = uniqueSourceFiles.map(source => `- ${source}`).join('\n');
+
                 // Append sources to the result message
-                const messageContent = `${resData?.result}\n\nHere are my source(s):\n${sourcesList}`;
+                const messageContent = `${resData}`;
 
                 setMessages((prev) => ([...prev, {
                     role: 'ai',
