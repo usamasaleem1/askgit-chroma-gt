@@ -25,10 +25,6 @@ def chat_openai(repoName, question):
         print ("OPENAI_API_KEY environment variable not found")
 
     huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
-    if huggingface_api_key is not None:
-        print ("HUGGINGFACE_API_KEY is ready")
-    else:
-        print ("HUGGINGFACE_API_KEY environment variable not found")
         
     EMBEDDING_MODEL = "text-embedding-3-small"
     client = chromadb.PersistentClient(path="db")

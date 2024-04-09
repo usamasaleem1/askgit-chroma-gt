@@ -21,10 +21,6 @@ from chromadb.utils import embedding_functions
 
 def ingestingRepositories(repoName):
     huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
-    if huggingface_api_key is not None:
-        print ("HUGGINGFACE_API_KEY is ready")
-    else:
-        print ("HUGGINGFACE_API_KEY environment variable not found")
         
     print("LOADED INGEST.PY")
     
