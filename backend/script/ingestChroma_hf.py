@@ -7,19 +7,28 @@ from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import TextLoader
 from langchain_community.document_loaders import DirectoryLoader
 from dotenv import load_dotenv
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+
 load_dotenv()
 import openai
 
 import chromadb
+import chromadb.utils.embedding_functions as embedding_functions
+
 from chromadb.db.base import UniqueConstraintError
 from chromadb.utils import embedding_functions
 
-em = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="Huffon/sentence-klue-roberta-base")
-
 
 def ingestingRepositories(repoName):
+    huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
+    if huggingface_api_key is not None:
+        print ("HUGGINGFACE_API_KEY is ready")
+    else:
+        print ("HUGGINGFACE_API_KEY environment variable not found")
+        
     print("LOADED INGEST.PY")
-    os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+    
+    # os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
     # Load and process the text files
     loader = DirectoryLoader(f'./{repoName}.git', glob="./*.txt", loader_cls=TextLoader)
     # Supplying a persist_directory will store the embeddings on disk
@@ -36,15 +45,19 @@ def ingestingRepositories(repoName):
     # Embed and store the texts
     ## here we are using OpenAI embeddings but in future we will swap out to local embeddings
     print("Embedding...")
-    embedding = OpenAIEmbeddings(disallowed_special=())
-
+    # embedding = OpenAIEmbeddings(disallowed_special=())
+    embedding = HuggingFaceInferenceAPIEmbeddings(
+        api_key=huggingface_api_key,
+        model_name="sentence-transformers/all-MiniLM-L6-v2" 
+    )   
     import time
     start_time = time.time()
 
     print("Ingesting...")
     try:
-        vectordb = Chroma.from_documents(documents=texts, 
-                                        embedding=em,
+        vectordb = Chroma.from_documents(
+                                        documents=texts, 
+                                        embedding=embedding,
                                         persist_directory=persist_directory,
                                         collection_name=author_repoName,
                                         )
