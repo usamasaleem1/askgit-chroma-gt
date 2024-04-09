@@ -20,7 +20,7 @@ from chromadb.utils import embedding_functions
 
 
 def ingestingRepositories(repoName):
-    huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
+    huggingface_api_key = "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"
         
     print("LOADED INGEST.PY")
     
