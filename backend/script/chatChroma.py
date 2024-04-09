@@ -11,6 +11,7 @@ from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 
 
 def chat_openai(repoName, question):
@@ -23,15 +24,25 @@ def chat_openai(repoName, question):
     else:
         print ("OPENAI_API_KEY environment variable not found")
 
+    huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
+    if huggingface_api_key is not None:
+        print ("HUGGINGFACE_API_KEY is ready")
+    else:
+        print ("HUGGINGFACE_API_KEY environment variable not found")
+        
     EMBEDDING_MODEL = "text-embedding-3-small"
     client = chromadb.PersistentClient(path="db")
     print(client.list_collections())
     collection = client.get_collection(author_repoName)
 
-    embedding_function = OpenAIEmbeddingFunction(api_key=os.environ.get('OPENAI_API_KEY'), model_name=EMBEDDING_MODEL)
-
+    # embedding_function = OpenAIEmbeddingFunction(api_key=os.environ.get('OPENAI_API_KEY'), model_name=EMBEDDING_MODEL)
+    # using HuggingFaceInferenceAPIEmbeddings instead of OpenAIEmbeddingFunction, uncomment the line above and comment the line below to use OpenAIEmbeddingFunction
+    embedding = HuggingFaceInferenceAPIEmbeddings(
+        api_key=huggingface_api_key,
+        model_name="sentence-transformers/all-MiniLM-L6-v2" 
+    )   
     persist_directory = 'db'
-    embedding = OpenAIEmbeddings(disallowed_special=())
+    # embedding = OpenAIEmbeddings(disallowed_special=())
 
     # ------- Now we can use the vectordb to query the documents
     # load the persisted database from disk, and use it as normal. 

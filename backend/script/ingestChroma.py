@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 load_dotenv()
 import openai
 
-
 def ingestingRepositories(repoName):
     print("LOADED INGEST.PY")
     os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")

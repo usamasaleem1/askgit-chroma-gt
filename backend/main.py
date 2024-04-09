@@ -7,7 +7,7 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from fastapi import FastAPI
 from pydantic import BaseModel
 from script.downloadRepo import download_directory
-from script.ingestChroma import ingestingRepositories
+from script.ingestChroma_hf import ingestingRepositories
 from script.chatChroma import chat_openai
 from fastapi.middleware.cors import CORSMiddleware
 
