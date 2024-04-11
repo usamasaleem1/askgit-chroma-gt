@@ -15,7 +15,7 @@ interface RootLayoutProps {
 export const metadata = {
   title: {
     default: 'AskGit',
-    template: `%s | ''`,
+    template: ``,
   },
   description: "Lorem ipsum",
   keywords: [
