@@ -37,17 +37,18 @@ def chat_openai(repoName, question):
 
     # embedding_function = OpenAIEmbeddingFunction(api_key=os.environ.get('OPENAI_API_KEY'), model_name=EMBEDDING_MODEL)
     # using HuggingFaceInferenceAPIEmbeddings instead of OpenAIEmbeddingFunction, uncomment the line above and comment the line below to use OpenAIEmbeddingFunction
-    embedding = HuggingFaceInferenceAPIEmbeddings(
-        api_key=huggingface_api_key,
-        model_name="sentence-transformers/all-MiniLM-L6-v2" 
-    )   
+    # embedding = HuggingFaceInferenceAPIEmbeddings(
+    #     api_key=huggingface_api_key,
+    #     model_name="sentence-transformers/all-MiniLM-L6-v2" 
+    # )   
     persist_directory = 'db'
-    # embedding = OpenAIEmbeddings(disallowed_special=())
+    embedding = OpenAIEmbeddings(disallowed_special=(), show_progress_bar=True)
 
     # ------- Now we can use the vectordb to query the documents
     # load the persisted database from disk, and use it as normal. 
     print("Loading...")
-    vectordb = Chroma(persist_directory=persist_directory, 
+    vectordb = Chroma(
+                    persist_directory=persist_directory, 
                     embedding_function=embedding,
                     collection_name=author_repoName,
                     )
