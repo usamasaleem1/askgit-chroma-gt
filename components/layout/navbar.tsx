@@ -43,7 +43,9 @@ export function NavBar({ user, items, children, rightElements, scroll = false }:
 
   return (
     <header
+
       className={`sticky top-0 z-999 flex w-full justify-center transition-all ${"border-b"} bg-transparent`} // Change bg-background/0 to bg-opacity-0
+
 
     >
       <div className="container flex h-16 items-center justify-between py-4" >
