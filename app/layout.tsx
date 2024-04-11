@@ -50,10 +50,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           fontUrban.variable,
           fontHeading.variable
         )}
-        style={{
-          overflow: 'hidden',
-          height: '100vh'
-        }}
       >
         <PHProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

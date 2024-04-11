@@ -13,6 +13,7 @@ import "./style.css"
 import { ChatMessage } from "@/components/ui/chat-message";
 import { Button } from "@/components/ui/button";
 import { PromptForm } from "@/components/prompt-form";
+import BarLoader from "react-spinners/BarLoader";
 
 export default function AiChat({ params, user }) {
     const router = useRouter()
@@ -68,6 +69,23 @@ export default function AiChat({ params, user }) {
             console.log(" === Error ===> ", error)
         }
     }
+
+    const [fadeIn, setFadeIn] = useState(false);
+
+    const SearchingIndicator = () => {
+        const [phrases, setPhrases] = useState(['Scanning Codebase ...', 'Reading Code ...', 'Analyzing ...', 'Processing ...', 'Inspecting ...', 'Interpreting ...']);
+        const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+        setFadeIn(true); // Set fade in to true once in the beginning
+        useEffect(() => {
+            const interval = setInterval(() => {
+                setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+            }, 2500); // Change phrase every 2 seconds
+
+            return () => clearInterval(interval);
+        }, [phrases]);
+
+        return <span>{phrases[currentPhraseIndex]}</span>;
+    };
 
 
     const onDeleteSessions = debounce(async (session) => {
@@ -136,6 +154,7 @@ export default function AiChat({ params, user }) {
         } finally {
             setLoading(false)
         }
+
     }, 100)
 
 
@@ -148,6 +167,7 @@ export default function AiChat({ params, user }) {
 
     console.log(" ==== currentChat ====> ", currentChat)
     const [selectedRepo, setSelectedRepo] = useState(null);
+
     return (
         <DashboardShell>
             <div>
@@ -161,6 +181,7 @@ export default function AiChat({ params, user }) {
                                     placeholder="Select a Repo"
                                     value={selectedOption}
                                     onChange={(option) => {
+
                                         if (option) {
                                             setSelectedOption(option);
                                         }
@@ -355,19 +376,57 @@ export default function AiChat({ params, user }) {
                                     )}
                                 </div>
                             </div> */}
-                            <PromptForm
-                                isDisabled={!selectedOption}
-                                onSubmit={submitChat}
-                                input={input}
-                                setInput={setInput}
-                                isLoading={isLoading}
-                                repo_name={selectedOption?.value}
-                            />
+
+                            {isLoading ? (
+                                <>
+
+                                    <div style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        alignContent: 'center',
+                                        marginBottom: "1em",
+                                        opacity: fadeIn ? 1 : 0, // Apply opacity based on fadeIn state
+                                        transition: 'opacity 0.6s ease-in-out', // Apply transition effect to opacity
+                                        outline: "solid 2px #FFFFFF10",
+                                        backgroundColor: 'rgba(0, 0, 0, 0.15)', // 10% opacity black
+                                        paddingBottom: "0.5em",
+                                        paddingTop: "0.5em",
+                                        paddingLeft: "1.5em",
+                                        paddingRight: "1.5em",
+                                        borderRadius: "4em",
+                                        backdropFilter: 'blur(12px)', // backdrop filter
+                                    }}>
+                                        <BarLoader color="#1AD0F9" />
+                                        <div style={{ marginLeft: '1em', fontWeight: "bold" }}>
+                                            <SearchingIndicator />
+                                        </div>
+                                    </div>
+                                    <PromptForm
+                                        isDisabled={!selectedOption}
+                                        onSubmit={submitChat}
+                                        input={input}
+                                        setInput={setInput}
+                                        isLoading={isLoading}
+                                        repo_name={selectedOption?.value}
+                                    />
+                                </>
+                            ) : (
+                                <PromptForm
+                                    isDisabled={!selectedOption}
+                                    onSubmit={submitChat}
+                                    input={input}
+                                    setInput={setInput}
+                                    isLoading={isLoading}
+                                    repo_name={selectedOption?.value}
+                                />
+                            )}
+
+
                         </div>
                     </div>
 
                 </div>
-            </div>
-        </DashboardShell>
+            </div >
+        </DashboardShell >
     )
 }
