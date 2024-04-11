@@ -173,9 +173,10 @@ export default function AiChat({ params, user }) {
             <div>
                 <div className="flex" >
                     <div className="flex flex-col h-full history-container" style={{
-                        paddingLeft: '1em',
+                        paddingLeft: '2em',
+                        paddingTop: '2em',
                     }}>
-                        <div className="chat-container">
+                        <div className="chat-container" >
                             <div className="px-2 my-1 list-item" >
                                 <Select
                                     placeholder="Select a Repo"
@@ -200,8 +201,8 @@ export default function AiChat({ params, user }) {
                                             backgroundColor: 'transparent', // dark mode background color
                                             borderColor: '#333', // border color
                                             color: '#fff', // text color
-                                            borderRadius: '0.7em', // border radius
-                                            marginBottom: '1rem',
+                                            borderRadius: '0.6em', // border radius
+                                            marginBottom: '0.5rem',
 
                                         }),
                                         singleValue: (provided) => ({
@@ -237,7 +238,8 @@ export default function AiChat({ params, user }) {
                                     className='h-10 w-full justify-start bg-zinc-50 px-4 shadow-none transition-colors hover:bg-zinc-200/40 dark:bg-zinc-900 dark:hover:bg-zinc-300/10'
                                     style={{
                                         outline: "solid 1px rgba(255, 255, 255, 0.2)",
-                                        marginBottom: '1em'
+                                        marginBottom: '1em',
+                                        borderRadius: '0.8em',
                                     }}
                                 >
                                     <IconPlus className="-translate-x-2 stroke-2" />
@@ -287,6 +289,7 @@ export default function AiChat({ params, user }) {
                         overflow: 'auto',
                         height: '100vh',
                         paddingBottom: '20%',
+                        paddingTop: '2em',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
