@@ -357,14 +357,28 @@ export default function AiChat({ params, user }) {
                                     )}
                                 </div>
                             </div> */}
-                            <PromptForm
-                                isDisabled={!selectedOption}
-                                onSubmit={submitChat}
-                                input={input}
-                                setInput={setInput}
-                                isLoading={isLoading}
-                                repo_name={selectedOption?.value}
-                            />
+                            {isLoading ? (
+                                <>
+                                    <div style={{ paddingBottom: "1em" }}>Searching Codebase...</div>
+                                    <PromptForm
+                                        isDisabled={!selectedOption}
+                                        onSubmit={submitChat}
+                                        input={input}
+                                        setInput={setInput}
+                                        isLoading={isLoading}
+                                        repo_name={selectedOption?.value}
+                                    />
+                                </>
+                            ) : (
+                                <PromptForm
+                                    isDisabled={!selectedOption}
+                                    onSubmit={submitChat}
+                                    input={input}
+                                    setInput={setInput}
+                                    isLoading={isLoading}
+                                    repo_name={selectedOption?.value}
+                                />
+                            )}
                         </div>
                     </div>
 
