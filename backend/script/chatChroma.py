@@ -55,7 +55,8 @@ def chat_openai(repoName, question):
     retriever = vectordb.as_retriever(search_kwargs={"k": 4})
     
     template = """I want you to act as a coding expert, and an expert on the contents of a github repository. 
-    Answer the question concisely and informatively. If you need more information, ask for it. If you don't know the answer, say so. 
+    Answer the question concisely and informatively. If you need more information, ask for it. 
+    If you don't know the answer, say so. 
     Here is the content of the repository:
     {context}
     Question: {question}
