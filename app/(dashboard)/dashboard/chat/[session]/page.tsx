@@ -25,6 +25,7 @@ export default function AiChat({ params, user }) {
     const [messages, setMessages] = useState<any>([]);
     const [isLoading, setLoading] = useState<boolean>(false)
     const [prevInput, setPrevInput] = useState<any>("")
+    const [latestSelectedRepo, setLatestSelectedRepo] = useState(null);
 
     useEffect(() => {
         const getSessions = async () => {
@@ -45,14 +46,21 @@ export default function AiChat({ params, user }) {
     useEffect(() => {
         const getIngestedRepo = async () => {
             try {
-                const res = await axios.get('/api/ingest')
-                setIngestedRepo((res.data?.data ?? []))
+                const res = await axios.get('/api/ingest');
+                setIngestedRepo(res.data?.data ?? []);
+                if (res.data?.data?.length > 0) {
+                    setLatestSelectedRepo(res.data.data[0]); // Set the first repo as the latest selected
+                    setSelectedOption({
+                        label: res.data.data[0].repo_name,
+                        value: res.data.data[0].repo_name,
+                    });
+                }
             } catch (error) {
-                console.log(" === 37 ===> error ==> getIngestedRepo ==> ", error)
+                console.log(" === 37 ===> error ==> getIngestedRepo ==> ", error);
             }
-        }
-        getIngestedRepo()
-    }, [])
+        };
+        getIngestedRepo();
+    }, []);
 
 
     // useEffect(() => {
@@ -168,6 +176,16 @@ export default function AiChat({ params, user }) {
     console.log(" ==== currentChat ====> ", currentChat)
     const [selectedRepo, setSelectedRepo] = useState(null);
 
+    const handleNewChat = () => {
+        const newSessionId = Math.random().toString(36).slice(2);
+        router.push(`/dashboard/chat/${newSessionId}`);
+
+        setSelectedOption({
+            label: (latestSelectedRepo as any).repo_name,
+            value: (latestSelectedRepo as any).repo_name,
+        });
+
+    };
     return (
         <DashboardShell>
             <div>
@@ -241,6 +259,7 @@ export default function AiChat({ params, user }) {
                                         marginBottom: '1em',
                                         borderRadius: '0.8em',
                                     }}
+                                    onClick={handleNewChat}
                                 >
                                     <IconPlus className="-translate-x-2 stroke-2" />
                                     New Chat
@@ -262,6 +281,7 @@ export default function AiChat({ params, user }) {
                                                 <Button
                                                     variant="ghost"
                                                     className="size-6 p-0"
+
                                                 >
                                                     <IconMessage className="mr-2 size-6" />
                                                 </Button>
