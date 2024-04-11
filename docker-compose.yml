@@ -25,7 +25,7 @@ services:
     depends_on: 
       - frontend
     networks:
-      - askgit-chroma-gt-network
+      - askgit-chroma-gt_askgit-chroma-gt-network
 
   frontend:
     image: "frontend:latest"
@@ -41,7 +41,7 @@ services:
       - mysql-db
       - backend
     networks:
-      - askgit-chroma-gt-network
+      - askgit-chroma-gt_askgit-chroma-gt-network
 
   backend:
     image: "backend:latest"
@@ -52,7 +52,7 @@ services:
     expose:
       - 8000
     networks:
-      - askgit-chroma-gt-network
+      - askgit-chroma-gt_askgit-chroma-gt-network
   
   mysql-db:
     image: mysql:latest
@@ -62,7 +62,7 @@ services:
     volumes:
       - mysql:/var/lib/mysql
     networks:
-      - askgit-chroma-gt-network
+      - askgit-chroma-gt_askgit-chroma-gt-network
 
 volumes:
   mysql: ~
