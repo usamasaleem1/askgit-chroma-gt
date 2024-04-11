@@ -24,7 +24,7 @@ def chat_openai(repoName, question):
     else:
         print ("OPENAI_API_KEY environment variable not found")
 
-    huggingface_api_key = "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"
+    # huggingface_api_key = "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"
         
     EMBEDDING_MODEL = "text-embedding-3-small"
     client = chromadb.PersistentClient(path="db")
@@ -33,12 +33,17 @@ def chat_openai(repoName, question):
 
     # embedding_function = OpenAIEmbeddingFunction(api_key=os.environ.get('OPENAI_API_KEY'), model_name=EMBEDDING_MODEL)
     # using HuggingFaceInferenceAPIEmbeddings instead of OpenAIEmbeddingFunction, uncomment the line above and comment the line below to use OpenAIEmbeddingFunction
-    embedding = HuggingFaceInferenceAPIEmbeddings(
-        api_key=huggingface_api_key,
-        model_name="sentence-transformers/all-MiniLM-L6-v2" 
-    )   
+    # embedding = HuggingFaceInferenceAPIEmbeddings(
+    #     api_key=huggingface_api_key,
+    #     model_name="sentence-transformers/all-MiniLM-L6-v2" 
+    # )   
     persist_directory = 'db'
-    # embedding = OpenAIEmbeddings(disallowed_special=())
+    embedding = OpenAIEmbeddings(disallowed_special=(), 
+                                 model=EMBEDDING_MODEL, 
+                                 organization="org-CgIkZapFlHkDkKwMbjjihMC8",
+                                 show_progress_bar=True,
+                                 chunk_size=1200,
+                                 )
 
     # ------- Now we can use the vectordb to query the documents
     # load the persisted database from disk, and use it as normal. 
