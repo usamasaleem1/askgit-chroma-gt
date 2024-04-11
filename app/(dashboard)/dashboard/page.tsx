@@ -241,7 +241,7 @@ export default function DashboardPage() {
             </Button>
           </div>
         ) : (
-          <div style={{ maxHeight: "100vh", overflow: "auto", paddingBottom: "15rem" }} className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <div style={{ maxHeight: "100vh", overflow: "auto", paddingBottom: "15rem", paddingTop: "1em" }} className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <div style={{ marginTop: 10, width: "100%", maxWidth: "45rem" }} className="container absolute flex justify-center items-center left-0 right-0">
               <Input style={{
                 borderRadius: '1rem',
