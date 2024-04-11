@@ -41,7 +41,6 @@ def chat_openai(repoName, question):
     embedding = OpenAIEmbeddings(disallowed_special=(), 
                                  model=EMBEDDING_MODEL, 
                                  show_progress_bar=True,
-                                #  chunk_size=1200,
                                  )
 
     # ------- Now we can use the vectordb to query the documents
