@@ -8,7 +8,7 @@ RUN npm install -g pnpm
 
 COPY . .
 
-RUN npm install
+RUN pnpm install
 
 # RUN npm run build
 
