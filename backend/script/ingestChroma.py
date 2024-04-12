@@ -23,7 +23,7 @@ def ingestingRepositories(repoName):
 
     #splitting the text into
     print("Splitting...")
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1200, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=200)
     texts = text_splitter.split_documents(documents)
 
     # Embed and store the texts
