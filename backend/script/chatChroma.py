@@ -30,6 +30,18 @@ from operator import itemgetter
 from langchain_community.tools.sql_database.tool import QuerySQLDataBaseTool
 from langchain.agents import AgentType, Tool, initialize_agent, create_react_agent, AgentExecutor, create_structured_chat_agent
 from langchain_groq import ChatGroq
+from langchain.tools import BaseTool
+from langchain.callbacks.manager import (
+    AsyncCallbackManagerForToolRun,
+    CallbackManagerForToolRun,
+)
+from typing import Optional, Type
+from langchain.agents.agent_toolkits import SQLDatabaseToolkit
+from langchain.agents import AgentType, tool, create_sql_agent
+
+
+from langchain.agents import create_sql_agent
+from langchain.agents.types import AgentType
 
 if os.getenv("OPENAI_API_KEY") is not None:
     openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -41,7 +53,7 @@ groq_api_key = os.environ.get('GROQ_API_KEY')
 
 gpt = OpenAI(temperature=0)
 groq = ChatGroq(temperature=0.2, groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
-llm = ChatOpenAI(model_name="gpt-4", temperature=0.2, streaming=True, verbose=True)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.2, streaming=True, verbose=True)
 
 
 persist_directory = 'db'
@@ -101,7 +113,7 @@ askgit_prompt = '''Answer the following questions as best you can. Be detailed i
                 
                 
             When you are done, respond with a final answer between <final_answer></final_answer>.
-            
+            Make sure the action input is a detailed query because the more detailed the query, the more accurate the answer will be.
             Use the following format:
 
             Question: the input question you must answer
@@ -181,7 +193,30 @@ SQL_Prompt = PromptTemplate.from_template(
         SQL Result: {result}
         Answer: """
         )
-db = SQLDatabase.from_uri("sqlite:///metadata-db/awaazo.db")
+db = SQLDatabase.from_uri("sqlite:///metadata-db/awesome-for-beginners.db")
+toolkit = SQLDatabaseToolkit(db=db, llm=llm)
+tools = toolkit.get_tools()
+
+prefix = """
+You are an agent designed to interact with a github repo metadata sqlite database.
+Given an input question, create a syntactically correct {dialect} query to run, then look at the results of the query and return the answer.
+You can order the results by a relevant column to return the most interesting examples in the database.
+
+Never query for all the columns from a specific table, only ask for the relevant columns given the question.
+You have access to tools for interacting with the database.
+
+Only use the below tools. Only use the information returned by the below tools to construct your final answer.
+You MUST double check your query before executing it. If you get an error while executing a query, rewrite the query and try again.
+Note: you must always use double quotation marks (" ") for column names in SQL queries for avoid syntax error
+
+If the question does not seem related to the repo metadata database (issues, pull requests, etc), just return "I don't know" as the answer.
+"""
+suffix = """Begin!
+
+Question: {input}
+Thought: I should used teradata_search_tool to finding relevant syntax first.
+{agent_scratchpad}"""
+
 execute_query = QuerySQLDataBaseTool(db=db)
 write_query = create_sql_query_chain(llm, db)
 
@@ -208,24 +243,29 @@ def chat_openai(repoName, question):
         )
         | SQLanswer
     )
+
+
     
-    tools = [
-        Tool(
-            name="Codebase QA System",
-            func=qa_chain.invoke,
-            description="useful for when you need to answer questions related to the codebase itself, like the code, how the repository works, etc.",
-        ),
-        Tool(
-            name="Metadata QA System",
-            func=lambda question: chain.invoke({"question": question}),
-            description="Useful for querying metadata-related information within a repository, such as the number of issues, pull requests, and branches. In addition, it can tell you information about the repsitory such as the description using the repository table. Specifically, it enables users to extract detailed insights such as the count of issues, pull requests, and branches, as well as specific attributes associated with each, including their titles, states, timestamps, and other relevant information. With this tool, users can efficiently retrieve and analyze metadata to gain valuable insights into the repository's activity and structure.",
-        ),
-    ]
-    # agent = initialize_agent(
-    # tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=False, max_iterations=15
-    # )
-    agent = create_react_agent(llm, tools=tools, prompt=PromptTemplate(input_variables=["question"], template=askgit_prompt))
-    agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True, return_only_outputs=True, max_iterations=15, handle_parsing_errors=True,)
+    @tool
+    def CodeBaseSearchTool(human_message: str) -> str:
+        """
+        Searches for the codebase for the answer and returns the relevant code snippet to determine the answer.
+        """
+        res = qa_chain.invoke(human_message)
+        answer = str(res["source_documents"][0])
+        return answer
+    
+
+
+    agent_executor = create_sql_agent(
+        llm=llm,
+        toolkit=toolkit,
+        verbose=True,
+        agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+        extra_tools=[CodeBaseSearchTool],
+        prefix=prefix,
+        suffix=suffix
+    )
     for chunk in agent_executor.stream({"input": question, "agent_scratchpad": "I will determine which tool(s) to use to answer the type of question."}):
         print(list(chunk.keys()))
         # # Agent Action
