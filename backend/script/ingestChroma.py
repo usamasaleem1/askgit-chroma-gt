@@ -28,7 +28,7 @@ def ingestingRepositories(repoName):
 
     # Embed and store the texts
     ## here we are using OpenAI embeddings but in future we will swap out to local embeddings
-    print("Embedding...")
+
     embedding = OpenAIEmbeddings(disallowed_special=(),
                                  show_progress_bar=True,
                                  skip_empty=True
