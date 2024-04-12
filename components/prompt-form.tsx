@@ -42,13 +42,14 @@ export function PromptForm({
         await onSubmit(input)
       }}
     >
-      <div className=" flex flex-row overflow-hidden max-h-60 grow sm:rounded-md sm:border" style={{
+      <div className=" flex flex-row overflow-hidden max-h-60 grow sm:rounded-md " style={{
         borderRadius: '1.5em',
         backdropFilter: 'blur(100px)',
         backgroundColor: 'rgba(0, 0, 0, 0.15)',
         marginBottom: '2em',
         boxShadow: '0 0 30px 5px rgba(0, 0, 0, 0.2)',
         width: '40em',
+        border: '1px solid rgba(255, 255, 255, 0.3)',
       }}>
         <Textarea
           disabled={isDisabled}
