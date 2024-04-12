@@ -94,7 +94,7 @@ export default async function IndexPage() {
                             height: '40%',
                             border: 'none',
                         }}
-                        src="https://www.youtube.com/embed/ZSdY7KFPKN4?"
+                        src="https://www.youtube.com/embed/4lNj4ptWDos?"
                         title="YouTube video"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
