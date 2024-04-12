@@ -39,7 +39,8 @@ def ingestingRepositories(repoName):
 
     print("Ingesting...")
     try:
-        vectordb = Chroma.from_documents(documents=texts, 
+        vectordb = Chroma.from_documents(
+                                        documents=texts, 
                                         embedding=embedding,
                                         persist_directory=persist_directory,
                                         collection_name=author_repoName,
