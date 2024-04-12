@@ -13,6 +13,7 @@ import "./style.css"
 import { ChatMessage } from "@/components/ui/chat-message";
 import { Button } from "@/components/ui/button";
 import { PromptForm } from "@/components/prompt-form";
+import BarLoader from "react-spinners/BarLoader";
 
 export default function AiChat({ params, user }) {
     const router = useRouter()
@@ -24,6 +25,7 @@ export default function AiChat({ params, user }) {
     const [messages, setMessages] = useState<any>([]);
     const [isLoading, setLoading] = useState<boolean>(false)
     const [prevInput, setPrevInput] = useState<any>("")
+    const [latestSelectedRepo, setLatestSelectedRepo] = useState(null);
 
     useEffect(() => {
         const getSessions = async () => {
@@ -44,14 +46,21 @@ export default function AiChat({ params, user }) {
     useEffect(() => {
         const getIngestedRepo = async () => {
             try {
-                const res = await axios.get('/api/ingest')
-                setIngestedRepo((res.data?.data ?? []))
+                const res = await axios.get('/api/ingest');
+                setIngestedRepo(res.data?.data ?? []);
+                if (res.data?.data?.length > 0) {
+                    setLatestSelectedRepo(res.data.data[0]); // Set the first repo as the latest selected
+                    setSelectedOption({
+                        label: res.data.data[0].repo_name,
+                        value: res.data.data[0].repo_name,
+                    });
+                }
             } catch (error) {
-                console.log(" === 37 ===> error ==> getIngestedRepo ==> ", error)
+                console.log(" === 37 ===> error ==> getIngestedRepo ==> ", error);
             }
-        }
-        getIngestedRepo()
-    }, [])
+        };
+        getIngestedRepo();
+    }, []);
 
 
     // useEffect(() => {
@@ -68,6 +77,23 @@ export default function AiChat({ params, user }) {
             console.log(" === Error ===> ", error)
         }
     }
+
+    const [fadeIn, setFadeIn] = useState(false);
+
+    const SearchingIndicator = () => {
+        const [phrases, setPhrases] = useState(['Scanning Codebase ...', 'Reading Code ...', 'Analyzing ...', 'Processing ...', 'Inspecting ...', 'Interpreting ...']);
+        const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+        setFadeIn(true); // Set fade in to true once in the beginning
+        useEffect(() => {
+            const interval = setInterval(() => {
+                setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+            }, 2500); // Change phrase every 2 seconds
+
+            return () => clearInterval(interval);
+        }, [phrases]);
+
+        return <span>{phrases[currentPhraseIndex]}</span>;
+    };
 
 
     const onDeleteSessions = debounce(async (session) => {
@@ -136,6 +162,7 @@ export default function AiChat({ params, user }) {
         } finally {
             setLoading(false)
         }
+
     }, 100)
 
 
@@ -149,14 +176,25 @@ export default function AiChat({ params, user }) {
     console.log(" ==== currentChat ====> ", currentChat)
     const [selectedRepo, setSelectedRepo] = useState(null);
 
+    const handleNewChat = () => {
+        const newSessionId = Math.random().toString(36).slice(2);
+        router.push(`/dashboard/chat/${newSessionId}`);
+
+        setSelectedOption({
+            label: (latestSelectedRepo as any).repo_name,
+            value: (latestSelectedRepo as any).repo_name,
+        });
+
+    };
     return (
         <DashboardShell>
             <div>
                 <div className="flex" >
                     <div className="flex flex-col h-full history-container" style={{
-                        paddingLeft: '1em',
+                        paddingLeft: '2em',
+                        paddingTop: '2em',
                     }}>
-                        <div className="chat-container">
+                        <div className="chat-container" >
                             <div className="px-2 my-1 list-item" >
                                 <Select
                                     placeholder="Select a Repo"
@@ -181,8 +219,8 @@ export default function AiChat({ params, user }) {
                                             backgroundColor: 'transparent', // dark mode background color
                                             borderColor: '#333', // border color
                                             color: '#fff', // text color
-                                            borderRadius: '0.7em', // border radius
-                                            marginBottom: '1rem',
+                                            borderRadius: '0.6em', // border radius
+                                            marginBottom: '0.5rem',
 
                                         }),
                                         singleValue: (provided) => ({
@@ -218,8 +256,10 @@ export default function AiChat({ params, user }) {
                                     className='h-10 w-full justify-start bg-zinc-50 px-4 shadow-none transition-colors hover:bg-zinc-200/40 dark:bg-zinc-900 dark:hover:bg-zinc-300/10'
                                     style={{
                                         outline: "solid 1px rgba(255, 255, 255, 0.2)",
-                                        marginBottom: '1em'
+                                        marginBottom: '1em',
+                                        borderRadius: '0.8em',
                                     }}
+                                    onClick={handleNewChat}
                                 >
                                     <IconPlus className="-translate-x-2 stroke-2" />
                                     New Chat
@@ -241,6 +281,7 @@ export default function AiChat({ params, user }) {
                                                 <Button
                                                     variant="ghost"
                                                     className="size-6 p-0"
+
                                                 >
                                                     <IconMessage className="mr-2 size-6" />
                                                 </Button>
@@ -268,6 +309,7 @@ export default function AiChat({ params, user }) {
                         overflow: 'auto',
                         height: '100vh',
                         paddingBottom: '20%',
+                        paddingTop: '2em',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -357,9 +399,31 @@ export default function AiChat({ params, user }) {
                                     )}
                                 </div>
                             </div> */}
+
                             {isLoading ? (
                                 <>
-                                    <div style={{ paddingBottom: "1em" }}>Searching Codebase...</div>
+
+                                    <div style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        alignContent: 'center',
+                                        marginBottom: "1em",
+                                        opacity: fadeIn ? 1 : 0, // Apply opacity based on fadeIn state
+                                        transition: 'opacity 0.6s ease-in-out', // Apply transition effect to opacity
+                                        outline: "solid 2px #FFFFFF10",
+                                        backgroundColor: 'rgba(0, 0, 0, 0.15)', // 10% opacity black
+                                        paddingBottom: "0.5em",
+                                        paddingTop: "0.5em",
+                                        paddingLeft: "1.5em",
+                                        paddingRight: "1.5em",
+                                        borderRadius: "4em",
+                                        backdropFilter: 'blur(12px)', // backdrop filter
+                                    }}>
+                                        <BarLoader color="#1AD0F9" />
+                                        <div style={{ marginLeft: '1em', fontWeight: "bold" }}>
+                                            <SearchingIndicator />
+                                        </div>
+                                    </div>
                                     <PromptForm
                                         isDisabled={!selectedOption}
                                         onSubmit={submitChat}
@@ -379,11 +443,13 @@ export default function AiChat({ params, user }) {
                                     repo_name={selectedOption?.value}
                                 />
                             )}
+
+
                         </div>
                     </div>
 
                 </div>
-            </div>
-        </DashboardShell>
+            </div >
+        </DashboardShell >
     )
 }
