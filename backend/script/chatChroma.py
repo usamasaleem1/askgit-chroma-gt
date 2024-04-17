@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_core.prompts import ChatPromptTemplate
@@ -23,30 +22,41 @@ def chat_openai(repoName, question):
         print ("OPENAI_API_KEY is ready")
     else:
         print ("OPENAI_API_KEY environment variable not found")
+    
+    getquestion = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
+    chat = ChatGroq(temperature=0.2, groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
 
-    # huggingface_api_key = "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"
+    res = getquestion.invoke("""Fix any grammar mistakes and make the following codebase related question more elaborate. 
+                      Only return the new question itself, nothing more. 
+                      
+                      IMPORTANT: If you are unsure and need more context, say "I don't know." and NOTHING else. \n\nQuestion: \n""" + question)
+    print(f'getquestion response: {res.content}')
+    if res.content.startswith("I don't know."):
+        question = "Tell me more about the codebase, and suggest some questions I can ask."
+    else:
+        question = res.content
+    
+    print(f'Formatted question: {question}')
         
     EMBEDDING_MODEL = "text-embedding-3-small"
     client = chromadb.PersistentClient(path="db")
     print(client.list_collections())
     collection = client.get_collection(author_repoName)
 
-    # embedding_function = OpenAIEmbeddingFunction(api_key=os.environ.get('OPENAI_API_KEY'), model_name=EMBEDDING_MODEL)
+    embedding_function = OpenAIEmbeddingFunction(api_key=os.environ.get('OPENAI_API_KEY'), model_name=EMBEDDING_MODEL)
     # using HuggingFaceInferenceAPIEmbeddings instead of OpenAIEmbeddingFunction, uncomment the line above and comment the line below to use OpenAIEmbeddingFunction
     # embedding = HuggingFaceInferenceAPIEmbeddings(
     #     api_key=huggingface_api_key,
     #     model_name="sentence-transformers/all-MiniLM-L6-v2" 
     # )   
     persist_directory = 'db'
-    embedding = OpenAIEmbeddings(disallowed_special=(), 
-                                 model=EMBEDDING_MODEL, 
-                                 show_progress_bar=True,
-                                 )
+    embedding = OpenAIEmbeddings(disallowed_special=(), show_progress_bar=True, model=EMBEDDING_MODEL)
 
     # ------- Now we can use the vectordb to query the documents
     # load the persisted database from disk, and use it as normal. 
     print("Loading...")
-    vectordb = Chroma(persist_directory=persist_directory, 
+    vectordb = Chroma(
+                    persist_directory=persist_directory, 
                     embedding_function=embedding,
                     collection_name=author_repoName,
                     )
@@ -55,20 +65,23 @@ def chat_openai(repoName, question):
     retriever = vectordb.as_retriever(search_kwargs={"k": 4})
     
     template = """I want you to act as a coding expert, and an expert on the contents of a github repository. 
-    Answer the question concisely and informatively. If you need more information, ask for it. 
-    If you don't know the answer, say so. 
+    Answer the question concisely and informatively. If you need more information, ask for it. If you don't know the answer, say so. 
     Here is the content of the repository:
+    
     {context}
+    
     Question: {question}
-    Helpful Answer:"""
+    
+    Helpful Answer:
+    """
 
     QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context", "question"], template=template)
-    chat = ChatGroq(temperature=0.2, groq_api_key="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", model_name="mixtral-8x7b-32768")
     
+    print(f'question' + question)
     # create the chain to answer questions 
     qa_chain = RetrievalQA.from_chain_type(
-                                    llm=ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.2, streaming=True, verbose=True), 
-                                    # llm=chat,
+                                    # llm=ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.2, streaming=True, verbose=True), 
+                                    llm=chat,
                                     chain_type="stuff", 
                                     retriever=retriever, 
                                     return_source_documents=True,
@@ -82,12 +95,12 @@ def chat_openai(repoName, question):
             continue
         res = qa_chain.invoke(query)
         process_llm_response(res)
-        # print(type(res))
-        print([res])  # Print the result as if it was an array
+        print(type(res))
         return res
+        
 ## Cite sources
 def process_llm_response(llm_response):
-    # print(type(llm_response))
+    print(type(llm_response))
     result = '\n' + llm_response['result'] + '\n\nSources:\n' + '\n'.join(source.metadata['source'] for source in llm_response["source_documents"])
-    # print(result)
+    print(result)
 

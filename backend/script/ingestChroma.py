@@ -23,7 +23,7 @@ def ingestingRepositories(repoName):
 
     #splitting the text into
     print("Splitting...")
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1100, chunk_overlap=200)
     texts = text_splitter.split_documents(documents)
 
     # Embed and store the texts
@@ -31,18 +31,21 @@ def ingestingRepositories(repoName):
     print("Embedding...")
     embedding = OpenAIEmbeddings(disallowed_special=(),
                                  show_progress_bar=True,
-                                 skip_empty=True
+                                 model="text-embedding-3-small",
+                                 skip_empty=True,
                                  )
 
     import time
     start_time = time.time()
 
+    ids = [str(i) for i in range(1, len(texts) + 1)]
     print("Ingesting...")
     try:
         vectordb = Chroma.from_documents(documents=texts, 
                                         embedding=embedding,
                                         persist_directory=persist_directory,
                                         collection_name=author_repoName,
+                                        ids=ids
                                         )
     except TimeoutError:
         print("The operation timed out.")
