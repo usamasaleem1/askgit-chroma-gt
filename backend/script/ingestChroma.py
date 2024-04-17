@@ -14,7 +14,7 @@ def ingestingRepositories(repoName):
     print("LOADED INGEST.PY")
     os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
     # Load and process the text files
-    loader = DirectoryLoader(f'./{repoName}.git', glob="./*.txt", loader_cls=TextLoader)
+    loader = DirectoryLoader(f'./{repoName}', glob="./*.txt", loader_cls=TextLoader)
     # Supplying a persist_directory will store the embeddings on disk
     persist_directory = 'db'
     author_repoName = repoName # input("Enter the name of the collection (e.g., pinecone): ")
@@ -23,7 +23,7 @@ def ingestingRepositories(repoName):
 
     #splitting the text into
     print("Splitting...")
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1200, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     texts = text_splitter.split_documents(documents)
 
     # Embed and store the texts
@@ -48,14 +48,11 @@ def ingestingRepositories(repoName):
     except TimeoutError:
         print("The operation timed out.")
         return {"message": "The operation timed out."}        
-    # delete RepoContents folder if it exists
-    if os.path.exists('RepoContents'):
-        rmtree('RepoContents')
     # delete data_backup folder if it exists
     if os.path.exists('repodata_txt'):
         rmtree('repodata_txt')
     
-    data_backup_path = f"{repoName}.git"
+    data_backup_path = f"{repoName}"
     try:
         rmtree(data_backup_path)
         print(f"SUCCESS: Deleted cloned {data_backup_path} folder")

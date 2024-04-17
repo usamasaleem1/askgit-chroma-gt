@@ -4,12 +4,14 @@ from pathlib import Path
 from subprocess import run
 from git import Repo
 import shutil
-
+import time
 def download_directory(github_url=None):
     if github_url is None:
         repo_url = input("Enter the repository url: ")
     else:
         repo_url = github_url
+        if repo_url.endswith('/'):
+            repo_url = repo_url[:-1]
         repoAuthor = repo_url.split('/')[3]
         repoName = repo_url.split('/')[4]
         print(f"Repo Author: {repoAuthor}")
@@ -21,33 +23,32 @@ def download_directory(github_url=None):
     if os.path.exists(target_path):
         rmtree(target_path)
     # delete data_backup folder if it exists
-    data_backup_path = repo_url.split('/')[4]
+    data_backup_path = repo_url.split('/')[4].replace('.git', '')
     if os.path.exists(data_backup_path):
         rmtree(data_backup_path)
     print(f"Cloning {repo_url} to {target_path}...")
     # time taken to clone the repo
-    import time
     start_time = time.time()
     repo = Repo.clone_from(repo_url, target_path, depth=1)
     end_time = time.time()
-    
-    print(f"SUCCESS: Cloned {repo_url} to {target_path}")
+
     repo.git.pull()
-    print(f"SUCCESS: Pulled {repo_url} to {target_path}")
+    IGNORED_DIRECTORIES =["node_modules","public/build"]
+    IGNORED_FILES=["package-lock.json", "yarn.lock"]
 
     # for each file in RepoContents, copy it to data_backup if the file is readable as a text file, and convert it to a .txt file in the data_backup folder
     for root, path, files in os.walk(target_path):
         for file in files:
             file_path = os.path.join(root, file)
             if os.path.isfile(file_path):
-                if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg', '.ico')):
+                    continue
+                if file_path.startswith('RepoContents/.'):
                     continue
                 elif is_text_file(file_path):
-                    print(f"Copying {file_path} to {data_backup_path}")
+                    # copy the file to the data_backup folder
                     os.makedirs(data_backup_path, exist_ok=True)
                     shutil.copy(file_path, data_backup_path)
-                    print(f"SUCCESS: Copied {file_path} to {data_backup_path}")
-
                     print(f"Converting {file_path} to {data_backup_path}")
 
                     text_file_name = file_path + '.txt'
@@ -69,6 +70,8 @@ def download_directory(github_url=None):
                     print(
                         f"SUCCESS: Removed original file {file} from {data_backup_path}")
     print(f"\nTime taken to clone: {end_time - start_time} seconds")
+    if os.path.exists(target_path):
+        rmtree(target_path)
     
 def is_text_file(file_path):
     try:
