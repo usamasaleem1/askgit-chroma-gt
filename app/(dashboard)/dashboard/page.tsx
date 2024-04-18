@@ -93,6 +93,15 @@ export default function DashboardPage() {
         token: token
       })
       setIngestedRepo(pre => ([...pre, item.git_url]))
+      const repoName = item.name;
+      toast.success(`${repoName} ingested successfully!`, {
+        duration: 4000,
+        style: {
+          borderRadius: '10em',
+          padding: '1rem',
+
+        },
+      });
     } catch (error) {
       console.log(" === 12 ===> error ==> useGitRepository ==> ", error)
     } finally {
