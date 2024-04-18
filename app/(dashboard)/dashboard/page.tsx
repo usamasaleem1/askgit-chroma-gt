@@ -93,6 +93,15 @@ export default function DashboardPage() {
         token: token
       })
       setIngestedRepo(pre => ([...pre, item.git_url]))
+      const repoName = item.name;
+      toast.success(`${repoName} ingested successfully!`, {
+        duration: 4000,
+        style: {
+          borderRadius: '10em',
+          padding: '1rem',
+
+        },
+      });
     } catch (error) {
       console.log(" === 12 ===> error ==> useGitRepository ==> ", error)
     } finally {
@@ -253,7 +262,7 @@ export default function DashboardPage() {
             </Button>
           </div>
         ) : (
-          <div style={{ maxHeight: "100vh", overflow: "auto", paddingBottom: "15rem" }} className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <div style={{ maxHeight: "100vh", overflow: "auto", paddingBottom: "15rem", paddingTop: "1em" }} className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <div style={{ marginTop: 10, width: "100%", maxWidth: "45rem" }} className="container absolute flex justify-center items-center left-0 right-0">
               <Input style={{
                 borderRadius: '1rem',
