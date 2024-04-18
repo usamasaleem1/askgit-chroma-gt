@@ -14,10 +14,12 @@ import { Icons } from "@/components/shared/icons";
 import { Input } from "@/components/ui/input";
 import Modal from 'react-modal';
 import { RiErrorWarningLine } from "react-icons/ri";
+import { Toaster } from "react-hot-toast";
+import { toast } from 'react-hot-toast';
+
 
 export default function DashboardPage() {
   const [isHovering, setIsHovering] = useState(true);
-
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [repoToIngest, setRepoToIngest] = useState(null);
   const [repoList, setRepoList] = useState([])
@@ -123,7 +125,7 @@ export default function DashboardPage() {
       /^https?:\/\/(www\.)?github.com\/(?<owner>[\w.-]+)\/(?<name>[\w.-]+)/
     );
     if (!match || !(match.groups?.owner && match.groups?.name)) return null;
-
+    const repoName = match?.groups?.name;
     setPublicIngestingLoading(true)
     try {
       const token = localStorage.getItem("gh-token")
@@ -135,8 +137,17 @@ export default function DashboardPage() {
       });
 
       // Fetch the updated list of repositories after ingestion
-      await getRepoList();
+      // await getRepoList();
 
+      // show toast success message
+      toast.success(`${repoName} ingested successfully!`, {
+        duration: 4000,
+        style: {
+          borderRadius: '10em',
+          padding: '1rem',
+
+        },
+      });
       // Clear the input field
       setPublicRepo("");
     } catch (error) {
@@ -207,6 +218,7 @@ export default function DashboardPage() {
               }
             </td>
           </tr>
+          <Toaster position="bottom-center" />
           {index < repoList.length - 1 && <tr><td colSpan={4} style={{ height: '1px', backgroundColor: 'rgba(250, 250, 250, 0.12)' }}></td></tr>}
         </>
       );
