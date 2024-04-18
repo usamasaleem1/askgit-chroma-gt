@@ -80,7 +80,7 @@ export default function DashboardPage() {
   }, [])
 
   const onRepoIngest = async (item: any) => {
-
+    const repoName = item.name;
     setIngestingLoading(prev => ({
       ...prev,
       [item?.id]: true
@@ -93,7 +93,7 @@ export default function DashboardPage() {
         token: token
       })
       setIngestedRepo(pre => ([...pre, item.git_url]))
-      const repoName = item.name;
+
       toast.success(`${repoName} ingested successfully!`, {
         duration: 4000,
         style: {
@@ -104,6 +104,13 @@ export default function DashboardPage() {
       });
     } catch (error) {
       console.log(" === 12 ===> error ==> useGitRepository ==> ", error)
+      toast.error(`Error ingesting ${repoName}`, {
+        duration: 4000,
+        style: {
+          borderRadius: '10em',
+          padding: '1rem',
+        },
+      });
     } finally {
       setIngestingLoading(prev => ({
         ...prev,
@@ -161,6 +168,13 @@ export default function DashboardPage() {
       setPublicRepo("");
     } catch (error) {
       console.log(" === 12 ===> error ==> useGitRepository ==> ", error)
+      toast.error(`Error ingesting ${repoName}`, {
+        duration: 4000,
+        style: {
+          borderRadius: '10em',
+          padding: '1rem',
+        },
+      });
     } finally {
       setPublicIngestingLoading(false);
     }
