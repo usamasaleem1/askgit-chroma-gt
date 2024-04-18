@@ -14,7 +14,7 @@ def ingestingRepositories(repoName):
     print("LOADED INGEST.PY")
     os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
     # Load and process the text files
-    loader = DirectoryLoader(f'./{repoName}.git', glob="./*.txt", loader_cls=TextLoader)
+    loader = DirectoryLoader(f'./{repoName}', glob="./*.txt", loader_cls=TextLoader)
     # Supplying a persist_directory will store the embeddings on disk
     persist_directory = 'db'
     author_repoName = repoName # input("Enter the name of the collection (e.g., pinecone): ")
@@ -60,7 +60,7 @@ def ingestingRepositories(repoName):
     if os.path.exists('repodata_txt'):
         rmtree('repodata_txt')
     
-    data_backup_path = f"{repoName}.git"
+    data_backup_path = f"{repoName}"
     try:
         rmtree(data_backup_path)
         print(f"SUCCESS: Deleted cloned {data_backup_path} folder")
