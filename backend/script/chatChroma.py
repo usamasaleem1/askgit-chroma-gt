@@ -58,8 +58,10 @@ def chat_openai(repoName, question):
     
     template = """I want you to act as a coding expert, and an expert on the contents of a github repository. 
     Answer the question concisely and informatively. If you need more information, ask for it. If you don't know the answer, say so. 
-    Here is the content of the repository:
+    Here is the context of the repository related to the question. The metadata source is the file path of the code file in the repository:
+    
     {context}
+    
     Question: {question}
     Helpful Answer:"""
 
