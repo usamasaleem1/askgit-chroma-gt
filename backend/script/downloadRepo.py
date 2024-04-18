@@ -11,7 +11,7 @@ def download_directory(github_url=None):
     else:
         repo_url = github_url
         if repo_url.endswith('/'):
-            repo_url = repo_url[:-4]
+            repo_url = repo_url[:-1]
         repoAuthor = repo_url.split('/')[3]
         repoName = repo_url.split('/')[4]
         print(f"Repo Author: {repoAuthor}")
