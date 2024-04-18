@@ -100,7 +100,7 @@ export default function LoginPage() {
               height: '40%',
               border: 'none',
             }}
-            src="https://www.youtube.com/embed/IBzEJk5PCbw?"
+            src="https://www.youtube.com/embed/4lNj4ptWDos?"
             title="YouTube video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
