@@ -36,7 +36,7 @@ export default function LoginPage() {
             </div>
           </section>
           <div className="video-container" style={{ position: 'relative', paddingTop: '56.25%', marginTop: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
-            <iframe className="responsive-iframe" style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '40%', height: '40%', border: 'none', }} src="https://www.youtube.com/embed/IBzEJk5PCbw?" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen >
+            <iframe className="responsive-iframe" style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '40%', height: '40%', border: 'none', }} src="https://www.youtube.com/embed/ZSdY7KFPKN4?" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen >
             </iframe>
           </div>
         </div>
