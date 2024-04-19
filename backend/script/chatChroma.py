@@ -23,18 +23,13 @@ def chat_openai(repoName, question):
     else:
         print ("OPENAI_API_KEY environment variable not found")
     
-    getquestion = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-70b-8192")
+    getquestion = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-8b-8192")
     chat = ChatGroq(temperature=0.2, groq_api_key="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", model_name="llama3-70b-8192")
 
     res = getquestion.invoke("""Fix any grammar mistakes and make the following codebase related question more elaborate. 
-                      Only return the new question itself, nothing more. 
-                      
-                      IMPORTANT: If you are unsure and need more context, say "I don't know." and NOTHING else. \n\nQuestion: \n""" + question)
+                      Only return the new question itself, nothing more. \n\nQuestion: \n""" + question)
     print(f'getquestion response: {res.content}')
-    if res.content.startswith("I don't know."):
-        question = "Tell me more about the codebase, and suggest some questions I can ask."
-    else:
-        question = res.content
+    question = res.content
     
     print(f'Formatted question: {question}')
         
@@ -66,11 +61,14 @@ def chat_openai(repoName, question):
     
     template = """I want you to act as a coding expert, and an expert on the contents of a github repository. 
     Answer the question concisely and informatively. If you need more information, ask for it. If you don't know the answer, say so. 
-    The metadata source is the file path of the code file in the repository.
-    Here is the context of the repository related to the question. :
     
-    {context}
+    If the user asks something like "What is the codebase about?" or "What does this repo do?", 
+    you should say that you would need a more specific code related question about the repository, such as "What is the purpose of the code in the file at this path?" or "What does this function do?", etc.
     
+    IMPORTANT: If you are unsure and need more context, say "I don't know. Can you be more specific?" and NOTHING else. 
+    For your information: The metadata source is the file path of the code file in the repository. 
+    
+    Here is the context of the repository related to the question.:
     
     {context}
     
