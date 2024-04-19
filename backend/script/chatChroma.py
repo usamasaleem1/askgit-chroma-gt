@@ -24,7 +24,7 @@ def chat_openai(repoName, question):
         print ("OPENAI_API_KEY environment variable not found")
     
     getquestion = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-8b-8192")
-    chat = ChatGroq(temperature=0.2, groq_api_key="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", model_name="llama3-70b-8192")
+    chat = ChatGroq(temperature=0.1, groq_api_key="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", model_name="llama3-70b-8192")
 
     res = getquestion.invoke("""Fix any grammar mistakes and make the following codebase related question more elaborate. 
                       Only return the new question itself, nothing more. \n\nQuestion: \n""" + question)
@@ -59,13 +59,14 @@ def chat_openai(repoName, question):
     print("Retrieving...")
     retriever = vectordb.as_retriever(search_kwargs={"k": 4})
     
-    template = """I want you to act as a coding expert, and an expert on the contents of a github repository. 
-    Answer the question concisely and informatively. If you need more information, ask for it. If you don't know the answer, say so. 
+    template = """I want you to act as an expert assistant that helps answer questions about code. Specifically, I want you to answer questions given a snippets from a GitHub repository.
+    Answer the question concisely, informatively and in detail. If you don't know the answer, say so. 
     
-    If the user asks something like "What is the codebase about?" or "What does this repo do?", 
-    you should say that you would need a more specific code related question about the repository, such as "What is the purpose of the code in the file at this path?" or "What does this function do?", etc.
-    
-    IMPORTANT: If you are unsure and need more context, say "I don't know. Can you be more specific?" and NOTHING else. 
+    IMPORTANT NOTE:
+    If the user asks something too broad, that isn't code specific, e.g "What is the repo about?" or "What does this repo do?", you should say something detailed and pleasant instead, like: 
+    "Hmm, I would need a more specific code related question about the repository, such as "How does authentication work for users?" or "What does y function do?", etc. 
+    To generally know what the codebase is about, you can refer to the readme file. Please ask a more specific question about the codebase. :)"
+
     For your information: The metadata source is the file path of the code file in the repository. 
     
     Here is the context of the repository related to the question.:
