@@ -23,8 +23,8 @@ def chat_openai(repoName, question):
     else:
         print ("OPENAI_API_KEY environment variable not found")
     
-    getquestion = ChatGroq(temperature=0, groq_api_key="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", model_name="mixtral-8x7b-32768")
-    chat = ChatGroq(temperature=0.2, groq_api_key="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", model_name="mixtral-8x7b-32768")
+    getquestion = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-8b-8192")
+    chat = ChatGroq(temperature=0.2, groq_api_key="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", model_name="llama3-8b-8192")
 
     res = getquestion.invoke("""Fix any grammar mistakes and make the following codebase related question more elaborate. 
                       Only return the new question itself, nothing more. 
