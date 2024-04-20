@@ -71,7 +71,8 @@ def chat_openai(repoName, question):
 
     For your information: The metadata source is the file path of the code file in the repository. 
     
-    Here is the context of the repository related to the question.:
+    Remember, try not to be too verbose, and focus on answering the question by relating it to the repository as much as possible.
+    Here is the context of the github repository in question:
     
     {context}
     
