@@ -23,13 +23,14 @@ def chat_openai(repoName, question):
     else:
         print ("OPENAI_API_KEY environment variable not found")
     
+    question = question
     getquestion = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-8b-8192")
     chat = ChatGroq(temperature=0.1, groq_api_key="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", model_name="llama3-70b-8192")
 
     res = getquestion.invoke("""Fix any grammar mistakes and make the following codebase related question more elaborate. 
                       Only return the new question itself, nothing more. \n\nQuestion: \n""" + question)
     print(f'getquestion response: {res.content}')
-    question = res.content
+    question = "Based on the following snippets of a github repository, answer this question: " + res.content
     
     print(f'Formatted question: {question}')
         
@@ -73,7 +74,8 @@ def chat_openai(repoName, question):
     
     {context}
     
-    Question: {question}
+    Question: 
+    {question}
     
     Helpful Answer:
     """
