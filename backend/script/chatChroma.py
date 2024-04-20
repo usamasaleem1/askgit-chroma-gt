@@ -62,11 +62,12 @@ def chat_openai(repoName, question):
     
     template = """I want you to act as an expert assistant that helps answer questions about code. Specifically, I want you to answer questions given a snippets from a GitHub repository.
     Answer the question concisely, informatively and in detail. If you don't know the answer, say so. 
+    If there are relevant code snippets from the context for your answer, always show this code to support your answer using markdown.
     
     IMPORTANT NOTE:
     If the user asks something too broad, that isn't code specific, e.g "What is the repo about?" or "What does this repo do?", you should say something detailed and pleasant instead, like: 
     "Hmm, I would need a more specific code related question about the repository, such as "How does authentication work for users?" or "What does y function do?" or "what does x file do?", etc. 
-    To generally know what the codebase is about, you can refer to the readme file. Please ask a more specific question about the codebase. :)"
+    To generally know what the codebase is about, you can refer to the readme file. Please ask a more specific question about the codebase."
 
     For your information: The metadata source is the file path of the code file in the repository. 
     
