@@ -16,8 +16,12 @@ import Modal from 'react-modal';
 import { RiErrorWarningLine } from "react-icons/ri";
 import { Toaster } from "react-hot-toast";
 import { toast } from 'react-hot-toast';
+import { boolean } from "zod";
+interface IngestingStatus {
+  [repoId: string]: number | null;
+}
 
-
+const INGESTION_TIMEOUT = 5 * 60 * 1000; // 5 minutes in milliseconds
 export default function DashboardPage() {
   const [isHovering, setIsHovering] = useState(true);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
@@ -25,12 +29,12 @@ export default function DashboardPage() {
   const [repoList, setRepoList] = useState([])
   const [ingestedRepo, setIngestedRepo] = useState<any>([])
   const [loader, setLoader] = useState(true)
-  const [ingestingLoading, setIngestingLoading] = useState({})
   const [publicIngestingLoading, setPublicIngestingLoading] = useState(false)
   const [ghToken, setGhToken] = useState<string>("")
   const tokenModal = useTokenModal()
   const [publicRepo, setPublicRepo] = useState("")
   const [isTokenValid, setIsTokenValid] = useState(true); // New state variable to track token validity
+  const [ingestingLoading, setIngestingLoading] = useState<{ [repoId: string]: boolean }>({});
 
   useEffect(() => {
     const getGhToken = async () => {
@@ -67,6 +71,26 @@ export default function DashboardPage() {
     }
   };
 
+  useEffect(() => {
+    const getIngestingStatus = () => {
+      const ingestingStatus: IngestingStatus = JSON.parse(localStorage.getItem('ingestingStatus') || '{}');
+      const currentTime = Date.now();
+
+      const ingestingLoading: { [repoId: string]: boolean } = {};
+      for (const repoId in ingestingStatus) {
+        const ingestingStartTime = ingestingStatus[repoId];
+        if (ingestingStartTime && currentTime - ingestingStartTime < INGESTION_TIMEOUT) {
+          ingestingLoading[repoId] = true;
+        }
+      }
+
+      setIngestingLoading(ingestingLoading);
+    };
+
+    getIngestingStatus();
+  }, []);
+
+
 
   useEffect(() => {
     const getIngestedRepo = async () => {
@@ -82,10 +106,14 @@ export default function DashboardPage() {
 
   const onRepoIngest = async (item: any) => {
     const repoName = item.name;
+    const ingestingStatus: IngestingStatus = JSON.parse(localStorage.getItem('ingestingStatus') || '{}');
+    ingestingStatus[item.id] = Date.now();
+    localStorage.setItem('ingestingStatus', JSON.stringify(ingestingStatus));
+
     setIngestingLoading(prev => ({
       ...prev,
-      [item?.id]: true
-    }))
+      [item.id]: true
+    }));
     try {
       const token = localStorage.getItem("gh-token")
       const res = await axios.post('/api/ingest', {
@@ -103,6 +131,9 @@ export default function DashboardPage() {
 
         },
       });
+
+      delete ingestingStatus[item.id];
+      localStorage.setItem('ingestingStatus', JSON.stringify(false));
     } catch (error) {
       console.log(" === 12 ===> error ==> useGitRepository ==> ", error)
       toast.error(`Error ingesting ${repoName}`, {
@@ -115,10 +146,10 @@ export default function DashboardPage() {
     } finally {
       setIngestingLoading(prev => ({
         ...prev,
-        [item?.id]: false
-      }))
+        [item.id]: false
+      }));
     }
-  }
+  };
 
   const handleIngestConfirmation = async (repo) => {
     console.log(" === 12 ===> repo ==> ", repo)

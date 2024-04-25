@@ -8,7 +8,7 @@ export async function GET(request: any, context: any) {
     let status: number
     let data: any
     try {
-        let page = 0;
+        let page = 1;
         let repos: any[] = [];
         let hasMoreRepos = true;
 
