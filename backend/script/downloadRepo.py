@@ -13,13 +13,12 @@ def download_directory(github_url=None):
         repo_url = github_url
         if repo_url.endswith('/'):
             repo_url = repo_url[:-1]
+        if repo_url.endswith('/.git'):
+            repo_url = repo_url.replace('/.git', '')
         repoAuthor = repo_url.split('/')[3]
         repoName = repo_url.split('/')[4]
         print(f"Repo Author: {repoAuthor}")
         print(f"Repo Name: {repoName}")
-        author_repoName = repoAuthor + "_" + repoName
-    if repo_url.endswith('.git'):
-        repo_url = repo_url.replace('.git', '')
     target_path = "RepoContents"
     # delete RepoContents folder if it exists
     if os.path.exists(target_path):
@@ -47,13 +46,8 @@ def download_directory(github_url=None):
                 if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
                     continue
                 elif is_text_file(file_path):
-                    print(f"Copying {file_path} to {data_backup_path}")
                     os.makedirs(data_backup_path, exist_ok=True)
                     shutil.copy(file_path, data_backup_path)
-                    print(f"SUCCESS: Copied {file_path} to {data_backup_path}")
-
-                    print(f"Converting {file_path} to {data_backup_path}")
-
                     text_file_name = file_path + '.txt'
                     text_file_name = text_file_name.replace('RepoContents/', '')
 
@@ -65,13 +59,8 @@ def download_directory(github_url=None):
                         with open(file_path, 'r', encoding='utf-8') as original_file:
                             f.write(original_file.read())
 
-                    print(
-                        f"SUCCESS: Converted {file_path} to {data_backup_path}")
-
                     # Remove the original file from the data_backup folder
                     os.remove(os.path.join(data_backup_path, file))
-                    print(
-                        f"SUCCESS: Removed original file {file} from {data_backup_path}")
     print(f"\nTime taken to clone: {end_time - start_time} seconds")
     
 def is_text_file(file_path):
