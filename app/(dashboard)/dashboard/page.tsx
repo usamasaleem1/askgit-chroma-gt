@@ -54,8 +54,9 @@ export default function DashboardPage() {
     setLoader(true);
     try {
       const token = localStorage.getItem("gh-token");
-      const res = await axios.get('/api/repo/' + token).then(res => res.data);
-      setRepoList(res.data);
+      const res = await axios.get('/api/repo/' + token).then(res => res.data); setRepoList(res.data);
+      // print number of repos
+      console.log("Number of repositories: ", res.data.length);
       setIsTokenValid(true); // Set token as valid when data is successfully fetched
     } catch (error) {
       console.log(" === 12 ===> error ==> useGitRepository ==> ", error);
