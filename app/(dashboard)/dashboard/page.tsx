@@ -104,6 +104,13 @@ export default function DashboardPage() {
       });
     } catch (error) {
       console.log(" === 12 ===> error ==> useGitRepository ==> ", error)
+      toast.error(`Error ingesting.`, {
+        duration: 4000,
+        style: {
+          borderRadius: '10em',
+          padding: '1rem',
+        },
+      });
     } finally {
       setIngestingLoading(prev => ({
         ...prev,
@@ -161,6 +168,13 @@ export default function DashboardPage() {
       setPublicRepo("");
     } catch (error) {
       console.log(" === 12 ===> error ==> useGitRepository ==> ", error)
+      toast.error(`Error ingesting ${repoName}`, {
+        duration: 4000,
+        style: {
+          borderRadius: '10em',
+          padding: '1rem',
+        },
+      });
     } finally {
       setPublicIngestingLoading(false);
     }

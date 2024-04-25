@@ -82,6 +82,7 @@ export default async function IndexPage() {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
+                        marginBottom: '2rem',
                     }}>
                     <iframe
                         className="responsive-iframe"
