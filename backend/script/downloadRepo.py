@@ -16,7 +16,7 @@ def download_directory(github_url=None):
         print(f"Repo Name: {repoName}")
         author_repoName = repoAuthor + "_" + repoName
     if repo_url.endswith('.git'):
-        repo_url = repo_url[:-1]
+        repo_url = repo_url.replace('.git', '')
     target_path = "RepoContents"
     # delete RepoContents folder if it exists
     if os.path.exists(target_path):
