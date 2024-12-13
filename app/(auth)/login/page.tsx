@@ -28,7 +28,7 @@ export default function LoginPage() {
                 </span>
               </h1>
               <div className="max-w-[72rem] animate-fade-up text-balance leading-normal text-muted-foreground opacity-0 sm:text-xl sm:leading-8" style={{ animationDelay: "0.35s", animationFillMode: "forwards", fontWeight: "700", backdropFilter: "blur(15px)", outline: "solid 1px rgba(255, 255, 255, 0.2)", paddingLeft: "2rem", paddingRight: "2rem", paddingTop: "1rem", paddingBottom: "1rem", borderRadius: "1em", backgroundColor: "rgba(0, 0, 0, 0.05)", marginTop: "1rem", marginBottom: "1rem", }} >
-                <p> To get started, login with your GitHub Account </p>
+                <p> To get startedx, login with your GitHub Account </p>
               </div>
               <div className="flex animate-fade-up justify-center space-x-2 opacity-0 md:space-x-4" style={{ animationDelay: "0.4s", animationFillMode: "forwards", textShadow: "1px 1px 2px rgba(0,0,0,0.2)", position: "relative", backdropFilter: "blur(10px)", zIndex: 1, borderRadius: "5em", }} >
                 <UserAuthForm />
