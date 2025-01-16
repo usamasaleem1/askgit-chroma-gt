@@ -27,6 +27,7 @@ export function ChatMessage({ message, isStream = false, user, ...props }: ChatM
   const [text] = useState(message.content);
   const charactersPerUpdate = 3; // Increase the number of characters added per update
   const speed = 1; // Increase the speed of the animation
+
   const animate = (timestamp: number) => {
     if (!startTimeRef.current) {
       startTimeRef.current = timestamp;

@@ -20,11 +20,7 @@ from chromadb.utils import embedding_functions
 
 
 def ingestingRepositories(repoName):
-    huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
-    if huggingface_api_key is not None:
-        print ("HUGGINGFACE_API_KEY is ready")
-    else:
-        print ("HUGGINGFACE_API_KEY environment variable not found")
+    huggingface_api_key = "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"
         
     print("LOADED INGEST.PY")
     
@@ -48,7 +44,7 @@ def ingestingRepositories(repoName):
     # embedding = OpenAIEmbeddings(disallowed_special=())
     embedding = HuggingFaceInferenceAPIEmbeddings(
         api_key=huggingface_api_key,
-        model_name="sentence-transformers/all-MiniLM-L6-v2" 
+        model_name="sentence-transformers/all-mpnet-base-v2" 
     )   
     import time
     start_time = time.time()

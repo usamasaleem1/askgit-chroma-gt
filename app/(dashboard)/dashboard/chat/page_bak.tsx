@@ -206,7 +206,7 @@ export default function AiChat({ params, user }) {
                             </Link>
                         </div>
                         {/* Session List */}
-                        {sessionList.map((item: any, index: number) => (
+                        {sessionList?.map((item: any, index: number) => (
                             <div key={index} className="space-x-1 px-2 my-1 list-item">
                                 <Link
                                     href={`/dashboard/chat/${item?.session}`}

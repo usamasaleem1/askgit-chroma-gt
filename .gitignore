@@ -46,6 +46,7 @@ next-env.d.ts
 
 .env
 .env.local
+.env.docker
 /backend/.env
 backend/script/__pycache__/chatChroma.cpython-311.pyc
 backend/__pycache__/main.cpython-311.pyc
@@ -56,3 +57,11 @@ backend/db/705f2ad8-6c50-4a8e-8bfa-6e8dc9a396ca/link_lists.bin
 backend/db/705f2ad8-6c50-4a8e-8bfa-6e8dc9a396ca/length.bin
 backend/db/705f2ad8-6c50-4a8e-8bfa-6e8dc9a396ca/header.bin
 backend/db/705f2ad8-6c50-4a8e-8bfa-6e8dc9a396ca/data_level0.bin
+.DS_Store
+app/(auth)/login/page.tsx
+app/page.tsx
+backend/__pycache__/main.cpython-311.pyc
+backend/script/__pycache__/chatChroma.cpython-311.pyc
+backend/script/__pycache__/downloadRepo.cpython-311.pyc
+backend/script/__pycache__/ingestChroma.cpython-311.pyc
+backend/script/chatChroma.py

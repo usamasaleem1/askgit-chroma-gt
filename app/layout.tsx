@@ -15,7 +15,7 @@ interface RootLayoutProps {
 export const metadata = {
   title: {
     default: 'AskGit',
-    template: `%s | ''`,
+    template: ``,
   },
   description: "Lorem ipsum",
   keywords: [
@@ -52,7 +52,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         )}
         style={{
           overflow: 'hidden',
-          height: '100vh'
+          height: '100vh',
         }}
       >
         <PHProvider>

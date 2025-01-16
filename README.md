@@ -6,32 +6,33 @@
 pnpm install
 ```
 
-2. Copy `.env.local.example` to `.env.local` and update the variables.
+1. Copy `.env.example` to `.env` and update the variables.
 
 ```sh
-cp .env.local.example .env.local
+cp .env.local.example .env
 ```
 
-3. Edit schema.prima to match your database
+3. Fill env variables. Set DATABASE_URL to match your database:
 
 ```sh
 mysql://user:pass@127.0.0.1:3306/<databasename>
 ```
 
-4. Start the frontend:
+4. Run migrate to create intialize db
+```sh
+npm run migrate
+```
+
+5. Start the frontend:
 ```sh
 pnpm dev
 ```
 
-5. Start the backend server:
+6. Start the backend server:
 
 ```sh
 cd backend
+pip install requirements.txt
 uvicorn main:app --reload
 ```
-----
-If you have any issues with the db stuff, delete backend/script/db and also run in root folder:
-```sh
-npm run migrate
-```
-to create a new database 
+
